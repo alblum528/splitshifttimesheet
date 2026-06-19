@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ Primary SEO ═══ -->
+<title>Free Split-Shift Timesheet</title>
+<meta name="description" content="Free split-shift timesheet for gig workers, healthcare workers, restaurant workers, and home health aides. Track up to 3 shifts per day, auto-calculate weekly totals and overtime, and export a PDF for payroll or taxes. No sign-up required.">
+<meta name="keywords" content="split shift timesheet, free timesheet, multi-shift time tracker, gig worker timesheet, healthcare timesheet, home health aide timesheet, restaurant worker timesheet, work hours calculator, calculate my hours, overtime calculator, biweekly timesheet, payroll timesheet, PDF timesheet, daily shift tracker, clock in clock out">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Calculate My Hours">
+<!-- Update this to your live URL before deploying -->
+<link rel="canonical" href="https://www.splitshifttimesheet.com/">
+
+<!-- ═══ Open Graph (Facebook / LinkedIn) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Split-Shift Timesheet — Calculate My Hours">
+<meta property="og:description" content="Track up to 3 shifts per day — perfect for gig workers, nurses, restaurant staff, and home health aides. Auto-calculates overtime and exports a professional PDF. Free, private, no account needed.">
+<meta property="og:url" content="https://www.splitshifttimesheet.com/">
+<meta property="og:site_name" content="Calculate My Hours">
+
+<!-- ═══ Twitter Card ═══ -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Split-Shift Timesheet — Calculate My Hours">
+<meta name="twitter:description" content="Track up to 3 shifts per day — perfect for gig workers, nurses, restaurant staff, and home health aides. Auto-calculates overtime and exports a PDF. Free, no account needed.">
+
+<!-- ═══ Structured Data — WebApplication ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculate My Hours — Free Split-Shift Timesheet",
+  "url": "https://www.splitshifttimesheet.com/",
+  "description": "Free split-shift timesheet for gig workers, healthcare workers, home health aides, and restaurant workers. Track up to 3 shifts per day, auto-calculate weekly totals and overtime, and export a professional PDF for payroll or taxes. All data is stored locally in your browser — no account, no server.",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Time Tracking",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Gig workers, healthcare workers, home health aides, restaurant workers, nurses, freelancers, contractors"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Up to 3 daily split shifts per day",
+    "Automatic daily and weekly totals",
+    "Biweekly pay period support",
+    "Configurable overtime threshold",
+    "Professional PDF export for payroll",
+    "All data stored locally — no account required",
+    "Works offline after first load",
+    "Ideal for gig workers, nurses, home health aides, and restaurant staff"
+  ]
+}
+</script>
+
+<!-- ═══ Structured Data — FAQPage (featured snippet bait) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this timesheet really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Calculate My Hours is completely free to use with no sign-up, no subscription, and no hidden charges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my timesheet data stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All data is saved in your browser's local storage. Nothing is sent to any server. Your hours remain completely private on your own device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my timesheet to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click Export PDF to download a professionally formatted landscape PDF showing your daily entries, weekly totals, overtime breakdown, and pay period summary — ready to submit to a payroll coordinator or save for tax records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this timesheet calculate overtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Open Settings and enable overtime calculation, then set your weekly threshold (default 40 hours). Each week card shows an overtime badge, and the pay period summary splits total hours into regular and overtime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many shifts per day can I track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 3 clock-in / clock-out shifts per day, so you can track a morning shift, a midday break, and an evening block all in the same row — ideal for split-shift workers in healthcare, restaurants, gig platforms, and home health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this timesheet good for gig workers and healthcare workers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Calculate My Hours is designed for anyone who works split shifts or irregular hours — including gig workers, Uber and DoorDash drivers, home health aides, CNAs, nurses, restaurant and hospitality staff, and independent contractors. Track each shift separately and let the app total your hours automatically."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<style>
+/* ── Design tokens (timespancalculator.com palette) ── */
+:root {
+  --bg:          #f7f5f0;
+  --surface:     #ffffff;
+  --border:      #e4e0d6;
+  --section-bg:  #efebe2;
+  --muted-bg:    #fbfaf7;
+  --text:        #1b2430;
+  --text-2:      #3a4452;
+  --muted:       #8a8478;
+  --muted-light: #9aa3af;
+  --accent:      #c9622b;
+  --accent-bg:   #fbeae0;
+  --accent-bdr:  #e8b49a;
+  --accent-dark: #a84f22;
+  --nav-bg:      #1b2430;
+  --nav-text:    #f7f5f0;
+  --today-bg:    #fef9f0;
+  --today-bdr:   #c9622b;
+  --wknd-bg:     #fbfaf7;
+  --r-sm: 4px;
+  --r:    8px;
+  --r-lg: 12px;
+  --shadow:    0 1px 3px rgba(27,36,48,.08), 0 1px 2px rgba(27,36,48,.04);
+  --shadow-lg: 0 12px 32px rgba(27,36,48,.15);
+  --brand-h:   46px;
+  --toolbar-h: 62px;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════════
+   AD ZONES
+══════════════════════════════════════════ */
+.ad-strip {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+.ad-strip-bottom {
+  border-bottom: none;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+/* Ad placeholder — replace contents with AdSense <ins> tag */
+.ad-placeholder {
+  background: #f0ece3;
+  border: 1px dashed #cdc7bb;
+  border-radius: var(--r-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #b0a898;
+}
+.ad-placeholder-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+.ad-placeholder-size { font-size: 9px; opacity: .6; }
+.ad-leaderboard { width: 728px; height: 90px; max-width: 100%; }
+.ad-rect       { width: 300px; height: 250px; }
+.ad-rect-tall  { width: 300px; height: 250px; }
+
+/* ══════════════════════════════════════════
+   BRAND BAR (sticky, dark)
+══════════════════════════════════════════ */
+.brand-bar {
+  background: var(--nav-bg);
+  height: var(--brand-h);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.brand-bar-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+/* Barcode icon — SVG inline */
+.brand-icon { display: block; flex-shrink: 0; }
+.brand-name {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--nav-text);
+  letter-spacing: -.2px;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+.brand-tagline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .7px;
+  color: rgba(247,245,240,.68);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   TOOLBAR (sticky, light)
+══════════════════════════════════════════ */
+.toolbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  height: var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: sticky;
+  top: var(--brand-h);
+  z-index: 59;
+  box-shadow: 0 1px 4px rgba(27,36,48,.06);
+}
+/* Toolbar inner — just spacing, width inherited from .page-container */
+.toolbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 0 28px;
+}
+.toolbar-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+  max-width: 260px;
+}
+.toolbar-title {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.2px;
+  line-height: 1.2;
+}
+.toolbar-employee {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+.toolbar-sep { flex: 1; }
+.period-nav { display: flex; align-items: center; gap: 6px; }
+.period-nav-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 192px;
+  text-align: center;
+  white-space: nowrap;
+}
+.toolbar-actions { display: flex; gap: 6px; align-items: center; }
+
+/* ══════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════ */
+button {
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  color: var(--text-2);
+  transition: background .1s, border-color .1s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+button:hover { background: var(--section-bg); border-color: #d6d0c4; }
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
+button.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+button.dark {
+  background: var(--nav-bg);
+  border-color: var(--nav-bg);
+  color: var(--nav-text);
+  font-weight: 500;
+}
+button.dark:hover { background: var(--text-2); border-color: var(--text-2); }
+button:disabled { opacity: .4; cursor: not-allowed; pointer-events: none; }
+.icon-btn {
+  padding: 6px 9px;
+  font-size: 15px;
+  line-height: 1;
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted);
+}
+.icon-btn:hover { background: var(--section-bg) !important; border-color: var(--border) !important; color: var(--text); }
+
+/* ══════════════════════════════════════════
+   PAGE LAYOUT (2-column: content + ad sidebar)
+══════════════════════════════════════════ */
+/* Single constraining shell — toolbar + content both live here */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-wrap {
+  display: flex;
+  gap: 28px;
+  padding: 22px 28px;
+  align-items: flex-start;
+}
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+.ad-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: calc(var(--brand-h) + var(--toolbar-h) + 16px);
+}
+
+/* Collapse sidebar on small screens */
+@media (max-width: 1060px) {
+  .ad-sidebar { display: none; }
+  .page-wrap { padding: 18px 20px; }
+}
+
+/* ══════════════════════════════════════════
+   FIRST-VISIT BANNER
+══════════════════════════════════════════ */
+.banner {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-bdr);
+  border-radius: var(--r);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.banner button {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-size: 12px;
+  padding: 5px 12px;
+}
+.banner button:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+/* ══════════════════════════════════════════
+   WEEK CARD
+══════════════════════════════════════════ */
+.week-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.week-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 16px;
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+.week-head-title {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.week-badges { display: flex; gap: 6px; align-items: center; }
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  border-radius: 20px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+.badge-total { color: var(--text-2); background: var(--surface); border: 1px solid var(--border); }
+.badge-ot    { color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-bdr); display: none; }
+
+/* ══════════════════════════════════════════
+   TABLE
+══════════════════════════════════════════ */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px 10px; text-align: left; vertical-align: middle; }
+thead th {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--muted);
+  background: var(--muted-bg);
+  border-bottom: 1px solid var(--border);
+}
+tbody tr { border-bottom: 1px solid #f0ece4; transition: background .08s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #faf8f3; }
+tbody tr.weekend { background: var(--wknd-bg); }
+tbody tr.weekend:hover { background: #f5f2ec; }
+tbody tr.today { background: var(--today-bg) !important; }
+tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding-left: 7px; }
+
+.day-label { font-weight: 600; font-size: 13px; color: var(--text); }
+.day-date  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.session-pair { display: flex; align-items: center; gap: 3px; }
+.session-pair input {
+  width: 78px;
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font: inherit;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color .1s, box-shadow .1s;
+}
+.session-pair input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,98,43,.12);
+}
+.session-pair input.invalid { border-color: #ef4444; background: #fff5f5; }
+.session-pair input::placeholder { color: #c5bfb5; }
+.arrow   { color: #c5bfb5; font-size: 11px; user-select: none; }
+.now-btn {
+  padding: 3px 6px; font-size: 11px; border-radius: var(--r-sm);
+  color: var(--muted); background: var(--section-bg); border-color: var(--border);
+}
+.now-btn:hover { background: var(--accent-bg); border-color: var(--accent-bdr); color: var(--accent); }
+.th-total { text-align: right; padding-right: 16px; border-left: 2px solid var(--border) !important; }
+.daily-total {
+  font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums;
+  text-align: right; padding-right: 16px; white-space: nowrap;
+  border-left: 2px solid var(--border); color: var(--muted);
+}
+.daily-total.has-hours { color: var(--text); }
+
+/* ══════════════════════════════════════════
+   PERIOD SUMMARY
+══════════════════════════════════════════ */
+.period-summary {
+  background: var(--nav-bg);
+  border-radius: var(--r-lg);
+  margin-top: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(27,36,48,.2);
+}
+.ps-body { display: flex; align-items: stretch; }
+.ps-stat {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ps-stat + .ps-stat { border-left: 1px solid rgba(255,255,255,.09); }
+.ps-stat-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: rgba(247,245,240,.42);
+}
+.ps-stat-value {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 30px; font-weight: 700;
+  font-variant-numeric: tabular-nums; line-height: 1;
+  color: var(--nav-text);
+}
+.ps-stat-value.ps-ot { color: #f5c4a4; }
+.ps-stat-unit { font-size: 11px; color: rgba(247,245,240,.38); margin-top: 2px; }
+.ps-footer {
+  padding: 8px 24px;
+  background: rgba(0,0,0,.18);
+  font-size: 11px;
+  color: rgba(247,245,240,.42);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* ══════════════════════════════════════════
+   HELP TEXT
+══════════════════════════════════════════ */
+.help-text { padding: 14px 0 24px; font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+/* ══════════════════════════════════════════
+   SETTINGS OVERLAY + PANEL
+══════════════════════════════════════════ */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(27,36,48,.45);
+  z-index: 100; opacity: 0; pointer-events: none;
+  transition: opacity .2s;
+}
+.overlay.open { opacity: 1; pointer-events: all; }
+.settings-panel {
+  position: fixed; top: 0; right: 0;
+  width: 368px; height: 100%;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  z-index: 101;
+  transform: translateX(100%);
+  transition: transform .25s cubic-bezier(.25,.8,.25,1);
+  display: flex; flex-direction: column;
+}
+.settings-panel.open { transform: translateX(0); }
+.sp-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  background: var(--section-bg); flex-shrink: 0;
+}
+.sp-head h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+.sp-head .icon-btn { color: var(--muted); }
+.sp-head .icon-btn:hover { color: var(--text); }
+.sp-body {
+  padding: 20px; flex: 1; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.sp-section {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: var(--muted);
+  padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  margin-bottom: -4px;
+}
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .4px; color: var(--muted);
+}
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"] {
+  font: inherit; font-size: 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: var(--r);
+  color: var(--text); background: var(--surface);
+  transition: border-color .1s, box-shadow .1s;
+}
+.form-group input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,98,43,.12);
+}
+.form-hint { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* Toggle */
+.toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.toggle-row-label { font-size: 13px; font-weight: 500; color: var(--text); }
+.toggle { position: relative; display: inline-block; width: 42px; height: 23px; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute; cursor: pointer; inset: 0;
+  background: #d1cdc4; border-radius: 23px; transition: background .2s;
+}
+.toggle-track::before {
+  content: ''; position: absolute;
+  height: 17px; width: 17px; left: 3px; bottom: 3px;
+  background: #fff; border-radius: 50%;
+  transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.toggle input:checked + .toggle-track { background: var(--accent); }
+.toggle input:checked + .toggle-track::before { transform: translateX(19px); }
+.ot-sub {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 4px; padding: 14px;
+  background: var(--section-bg); border-radius: var(--r); border: 1px solid var(--border);
+}
+.ot-sub.hidden { display: none; }
+
+.sp-footer {
+  padding: 14px 20px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.sp-footer button { flex: 1; padding: 9px; font-size: 13px; border-radius: var(--r); }
+
+/* ══════════════════════════════════════════
+   SEO CONTENT SECTION
+══════════════════════════════════════════ */
+.seo-section {
+  margin-top: 28px;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+}
+.seo-section h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.seo-section h3 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 16px 0 6px;
+}
+.seo-section p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   PRINT
+══════════════════════════════════════════ */
+@media print {
+  @page { size: letter landscape; margin: .45in; }
+  body { background: #fff; }
+  .brand-bar, .toolbar, .ad-strip, .ad-sidebar,
+  .help-text, .settings-panel, .overlay, .banner, .seo-section { display: none !important; }
+  .page-wrap { padding: 0; max-width: none; display: block; }
+  .week-card { box-shadow: none; border-radius: 0; border: 1px solid #ccc; margin-bottom: 12px; page-break-inside: avoid; }
+  .now-btn { display: none !important; }
+  .session-pair input { border: none; background: transparent; }
+  .period-summary { background: var(--nav-bg) !important; border-radius: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     BRAND BAR (sticky dark) — above everything including ads
+════════════════════════════════════════ -->
+<div class="brand-bar">
+  <div class="brand-bar-inner">
+    <div class="brand-left">
+      <!-- Vertical bar iconography matching timespancalculator.com -->
+      <svg class="brand-icon" width="40" height="24" viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0"  y="6"  width="2" height="14" rx=".4" fill="#7090a8"/>
+        <rect x="4"  y="2"  width="3" height="20" rx=".4" fill="#8aa4bc"/>
+        <rect x="9"  y="8"  width="2" height="10" rx=".4" fill="#7090a8"/>
+        <rect x="13" y="0"  width="3" height="24" rx=".4" fill="#8aa4bc"/>
+        <rect x="18" y="5"  width="2" height="16" rx=".4" fill="#7090a8"/>
+        <rect x="22" y="3"  width="2" height="19" rx=".4" fill="#8aa4bc"/>
+        <rect x="26" y="1"  width="3" height="22" rx=".4" fill="#c9622b"/>
+        <rect x="31" y="4"  width="2" height="16" rx=".4" fill="#c9622b"/>
+        <rect x="35" y="0"  width="3" height="24" rx=".4" fill="#c9622b"/>
+      </svg>
+      <h1 class="brand-name">Calculate My Hours</h1>
+    </div>
+    <span class="brand-tagline">FREE SPLIT-SHIFT DAILY TIMESHEET</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TOP AD ZONE — Leaderboard 728×90
+     Replace .ad-placeholder div with AdSense <ins> tag
+════════════════════════════════════════ -->
+<div class="ad-strip">
+  <div class="ad-placeholder ad-leaderboard">
+    <span class="ad-placeholder-label">Advertisement</span>
+    <span class="ad-placeholder-size">728 × 90</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE CONTAINER — constrains toolbar + content to same width
+════════════════════════════════════════ -->
+<div class="page-container">
+
+<!-- ══════════════════════════════════════
+     TOOLBAR (sticky light — period nav + actions)
+════════════════════════════════════════ -->
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-identity">
+      <div class="toolbar-title" id="toolbar-title">Timesheet</div>
+      <div class="toolbar-employee" id="header-employee">Name: —</div>
+    </div>
+    <div class="toolbar-sep"></div>
+    <div class="period-nav">
+      <button id="prev-btn" title="Previous period">&#8592;</button>
+      <div class="period-nav-label" id="period-nav-label">—</div>
+      <button id="next-btn" title="Next period">&#8594;</button>
+    </div>
+    <div class="toolbar-actions">
+      <button id="today-btn">Today</button>
+      <button id="clear-btn">Clear</button>
+      <button class="dark" id="settings-btn">Settings</button>
+      <button class="primary" id="pdf-btn">Export PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SETTINGS OVERLAY + PANEL
+════════════════════════════════════════ -->
+<div id="overlay" class="overlay"></div>
+<aside id="settings-panel" class="settings-panel" role="dialog" aria-label="Settings">
+  <div class="sp-head">
+    <h2>Settings</h2>
+    <button class="icon-btn" id="close-settings" aria-label="Close">&#x2715;</button>
+  </div>
+  <div class="sp-body">
+
+    <p class="sp-section">Employee Info</p>
+    <div class="form-group">
+      <label>Employee Name</label>
+      <input id="set-name" type="text" placeholder="Jane Smith" autocomplete="name">
+    </div>
+    <div class="form-group">
+      <label>Company / Organization</label>
+      <input id="set-company" type="text" placeholder="Acme Corp">
+    </div>
+    <div class="form-group">
+      <label>Employee ID <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input id="set-empid" type="text" placeholder="EMP-001">
+    </div>
+
+    <p class="sp-section">Pay Period</p>
+    <div class="form-group">
+      <label>Anchor Date</label>
+      <input id="set-anchor" type="date" value="2025-01-06">
+      <p class="form-hint">Start date of any 2-week pay period. All periods are calculated from this date.</p>
+    </div>
+
+    <p class="sp-section">Overtime</p>
+    <div>
+      <div class="toggle-row">
+        <span class="toggle-row-label">Calculate overtime</span>
+        <label class="toggle">
+          <input type="checkbox" id="set-ot-on">
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+      <div class="ot-sub hidden" id="ot-sub">
+        <div class="form-group">
+          <label>Overtime after (hrs/week)</label>
+          <input id="set-ot-hrs" type="number" min="1" max="168" step=".5" value="40">
+          <p class="form-hint">Hours per week beyond this threshold count as overtime.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="sp-footer">
+    <button id="sp-cancel">Cancel</button>
+    <button id="sp-save" class="primary">Save Settings</button>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════════
+     PAGE LAYOUT: content + right ad sidebar
+════════════════════════════════════════ -->
+<div class="page-wrap">
+
+  <!-- Main timesheet content -->
+  <main class="main-content">
+    <div id="banner" class="banner">
+      <span>&#128075; Enter your name and employer to personalize your timesheet and PDF export.</span>
+      <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+        <button id="banner-btn">Open Settings</button>
+        <button id="banner-close" style="background:transparent;border:none;color:var(--accent-dark);font-size:16px;padding:2px 6px;cursor:pointer" title="Dismiss">&#x2715;</button>
+      </div>
+    </div>
+
+    <p class="help-text" style="margin-bottom:14px">
+      Type times in any format — <strong>9:00 AM</strong>, <strong>1:30pm</strong>, <strong>930</strong>, or <strong>17:30</strong> — and the calculator normalizes them automatically.
+      Hit &#8635; to stamp the current time instantly. Your hours save to your browser as you type, so nothing is lost if you close the tab.
+      When your pay period is complete, click <strong>Export PDF</strong> to download a professional timesheet ready for your payroll coordinator or tax records.
+    </p>
+
+    <div id="weeks"></div>
+
+    <!-- Period summary (JS-rendered) -->
+    <div class="period-summary">
+      <div class="ps-body" id="ps-body"></div>
+      <div class="ps-footer" id="ps-footer">—</div>
+    </div>
+
+    <!-- SEO content section -->
+    <section class="seo-section" aria-label="About this timesheet tool">
+      <h2>Free Split-Shift Timesheet for Gig Workers, Healthcare &amp; Restaurant Staff</h2>
+      <p>
+        Calculate My Hours is a free, private split-shift timesheet that runs entirely in your browser — no account,
+        no app to install, no data sent to a server. It's built for workers who clock in and out more than once a day:
+        <strong>gig workers</strong>, <strong>home health aides</strong>, <strong>nurses and CNAs</strong>,
+        <strong>restaurant and hospitality staff</strong>, and anyone else juggling split shifts or irregular hours.
+        Track up to three separate shifts per day and let the calculator total your hours automatically.
+      </p>
+      <h3>How to use this split-shift timesheet</h3>
+      <p>
+        Enter your clock-in and clock-out times for each shift using any format: <strong>9 AM</strong>,
+        <strong>9:00</strong>, <strong>900</strong>, or <strong>17:30</strong>. Hit the ↻ button to stamp the
+        current time instantly. Daily totals appear on the right; weekly subtotals update at the top of each
+        week card. When your biweekly pay period is complete, click <strong>Export PDF</strong> to download a
+        formatted timesheet ready to email to your payroll coordinator or file with your tax records.
+      </p>
+      <h3>Overtime tracking for shift workers</h3>
+      <p>
+        Open <strong>Settings</strong> to enable overtime calculation. Set your weekly threshold (typically 40 hours
+        in the US) and the timesheet will automatically split each week into regular and overtime hours —
+        showing an OT badge on each week card and a full breakdown in the pay period summary bar. Especially
+        useful for home health aides, healthcare workers, and gig workers billing multiple clients.
+      </p>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════════
+       RIGHT AD SIDEBAR
+       Replace .ad-placeholder divs with AdSense <ins> tags
+  ════════════════════════════════════ -->
+  <aside class="ad-sidebar" aria-label="Advertisements">
+    <!-- ADSENSE SLOT 1 — Medium Rectangle 300×250 -->
+    <div class="ad-placeholder ad-rect">
+      <span class="ad-placeholder-label">Advertisement</span>
+      <span class="ad-placeholder-size">300 × 250</span>
+    </div>
+    <!-- ADSENSE SLOT 2 — Medium Rectangle 300×250 -->
+    <div class="ad-placeholder ad-rect">
+      <span class="ad-placeholder-label">Advertisement</span>
+      <span class="ad-placeholder-size">300 × 250</span>
+    </div>
+  </aside>
+
+</div><!-- /.page-wrap -->
+
+</div><!-- /.page-container -->
+
+<!-- ══════════════════════════════════════
+     BOTTOM AD ZONE — Leaderboard 728×90
+     Replace .ad-placeholder div with AdSense <ins> tag
+════════════════════════════════════════ -->
+<div class="ad-strip ad-strip-bottom">
+  <div class="ad-placeholder ad-leaderboard">
+    <span class="ad-placeholder-label">Advertisement</span>
+    <span class="ad-placeholder-size">728 × 90</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const DATA_KEY     = 'timesheet-data-v1';
+  const SETTINGS_KEY = 'timesheet-settings-v1';
+  const SESSIONS     = 3;
+  const PERIOD_DAYS  = 14;
+  const DAY_NAMES    = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const DEFAULT_ANCHOR = '2025-01-06';
+
+  let currentOffset = 0;
+
+  // ── Settings ──────────────────────────────────────────────────────
+  function getSettings() {
+    try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); }
+    catch(e) { return {}; }
+  }
+  function saveSettings(obj) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(obj)); }
+
+  // ── Data store ────────────────────────────────────────────────────
+  function loadStore() {
+    try {
+      const s = JSON.parse(localStorage.getItem(DATA_KEY) || '{}');
+      if (!s.periods) s.periods = {};
+      return s;
+    } catch(e) { return { periods:{} }; }
+  }
+  function saveStore(s) { localStorage.setItem(DATA_KEY, JSON.stringify(s)); }
+  function getPeriodData(off) { return loadStore().periods[off] || {}; }
+  function setCellValue(off, di, si, kind, val) {
+    const s = loadStore();
+    if (!s.periods[off]) s.periods[off] = {};
+    const k = `d${di}s${si}${kind}`;
+    if (val) s.periods[off][k] = val; else delete s.periods[off][k];
+    saveStore(s);
+  }
+  function clearPeriod(off) { const s = loadStore(); delete s.periods[off]; saveStore(s); }
+
+  // ── Date helpers ──────────────────────────────────────────────────
+  function anchorDate() {
+    const ds = getSettings().anchor || DEFAULT_ANCHOR;
+    const [y,m,d] = ds.split('-').map(Number);
+    return new Date(y, m-1, d);
+  }
+  function getPeriodStart(off) {
+    const a = anchorDate(), d = new Date(a);
+    d.setDate(d.getDate() + off * PERIOD_DAYS);
+    return d;
+  }
+  function offsetForDate(date) {
+    const ms = date.getTime() - anchorDate().getTime();
+    return Math.floor(Math.floor(ms / 86400000) / PERIOD_DAYS);
+  }
+  function sameDay(a, b) {
+    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+  }
+  function fmt(d, opts) {
+    return d.toLocaleDateString('en-US', opts || { month:'short', day:'numeric' });
+  }
+  function fmtLong(d) {
+    return d.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+  }
+
+  // ── Time helpers ──────────────────────────────────────────────────
+  function parseTime(str) {
+    if (!str) return null;
+    const s = String(str).trim().toUpperCase().replace(/\s+/g,'').replace(/\./g,'');
+    if (!s) return null;
+    const m = s.match(/^(\d{1,4})(?::(\d{1,2}))?(AM|PM|A|P)?$/);
+    if (!m) return null;
+    const digits=m[1], colonMin=m[2];
+    let mer=m[3]||null;
+    if (mer==='A') mer='AM'; if (mer==='P') mer='PM';
+    let h, min;
+    if (colonMin!==undefined) { h=+digits; min=+colonMin; }
+    else if (digits.length<=2) { h=+digits; min=0; }
+    else if (digits.length===3) { h=+digits[0]; min=+digits.slice(1); }
+    else { h=+digits.slice(0,2); min=+digits.slice(2); }
+    if (min>59) return null;
+    if (mer) {
+      if (h<1||h>12) return null;
+      if (mer==='PM'&&h<12) h+=12;
+      else if (mer==='AM'&&h===12) h=0;
+    } else if (h>23) return null;
+    return h*60+min;
+  }
+  function formatTime(mins) {
+    if (mins===null||mins===undefined) return '';
+    let h=Math.floor(mins/60); const m=mins%60;
+    const mer=h>=12?'PM':'AM';
+    h=h%12; if(h===0) h=12;
+    return `${h}:${String(m).padStart(2,'0')} ${mer}`;
+  }
+  function sessMins(inS, outS) {
+    const a=parseTime(inS), b=parseTime(outS);
+    if (a===null||b===null) return 0;
+    let d=b-a; if(d<0) d+=1440; return d;
+  }
+  function nowStr() {
+    const n=new Date();
+    return formatTime(n.getHours()*60+n.getMinutes());
+  }
+  function toHrs(mins) { return (mins/60).toFixed(2); }
+
+  // ── Overtime ──────────────────────────────────────────────────────
+  function calcWeekOT(weekMins) {
+    const cfg = getSettings();
+    if (!cfg.overtimeEnabled) return { regular: weekMins, ot: 0 };
+    const threshold = (cfg.otHours || 40) * 60;
+    const ot = Math.max(0, weekMins - threshold);
+    return { regular: weekMins - ot, ot };
+  }
+
+  // ── Period summary ────────────────────────────────────────────────
+  function renderPeriodSummary(totalMins, regularMins, otMins, ps, pe) {
+    const cfg = getSettings();
+    document.getElementById('ps-footer').textContent = `${fmtLong(ps)} – ${fmtLong(pe)}`;
+    const psBody = document.getElementById('ps-body');
+    if (cfg.overtimeEnabled) {
+      psBody.innerHTML = `
+        <div class="ps-stat">
+          <div class="ps-stat-label">Total Hours</div>
+          <div class="ps-stat-value">${toHrs(totalMins)}</div>
+          <div class="ps-stat-unit">hours this period</div>
+        </div>
+        <div class="ps-stat">
+          <div class="ps-stat-label">Regular Hours</div>
+          <div class="ps-stat-value">${toHrs(regularMins)}</div>
+          <div class="ps-stat-unit">straight-time hours</div>
+        </div>
+        <div class="ps-stat">
+          <div class="ps-stat-label">Overtime Hours</div>
+          <div class="ps-stat-value ps-ot">${toHrs(otMins)}</div>
+          <div class="ps-stat-unit">over ${cfg.otHours||40} hrs/week</div>
+        </div>`;
+    } else {
+      psBody.innerHTML = `
+        <div class="ps-stat">
+          <div class="ps-stat-label">Pay Period Total</div>
+          <div class="ps-stat-value">${toHrs(totalMins)}</div>
+          <div class="ps-stat-unit">hours over 2 weeks</div>
+        </div>`;
+    }
+  }
+
+  // ── Week badges ───────────────────────────────────────────────────
+  function updateWeekBadges(w, weekMins) {
+    const cfg = getSettings();
+    const bTotal = document.getElementById(`wk-total-${w}`);
+    const bOT    = document.getElementById(`wk-ot-${w}`);
+    if (!bTotal||!bOT) return;
+    bTotal.textContent = `${toHrs(weekMins)} hrs`;
+    if (cfg.overtimeEnabled) {
+      const { ot } = calcWeekOT(weekMins);
+      if (ot>0) { bOT.textContent=`${toHrs(ot)} OT`; bOT.style.display='inline-block'; }
+      else { bOT.style.display='none'; }
+    } else {
+      bOT.style.display='none';
+    }
+  }
+
+  // ── Main render ───────────────────────────────────────────────────
+  function render() {
+    const cfg   = getSettings();
+    const ps    = getPeriodStart(currentOffset);
+    const pe    = new Date(ps); pe.setDate(pe.getDate() + PERIOD_DAYS - 1);
+    const today = new Date();
+    const data  = getPeriodData(currentOffset);
+
+    document.getElementById('toolbar-title').textContent =
+      cfg.company ? `${cfg.company} Timesheet` : 'Timesheet';
+    document.getElementById('header-employee').textContent =
+      cfg.name ? `Name: ${cfg.name}` : 'Name: — click ⚙ to set up';
+    document.getElementById('period-nav-label').textContent =
+      `${fmt(ps)} – ${fmt(pe, { month:'short', day:'numeric', year:'numeric' })}`;
+
+    const weeksEl = document.getElementById('weeks');
+    weeksEl.innerHTML = '';
+    let totalMins=0, regularMins=0, otMins=0;
+
+    for (let w=0; w<2; w++) {
+      const wStart = new Date(ps); wStart.setDate(wStart.getDate() + w*7);
+      const wEnd   = new Date(wStart); wEnd.setDate(wEnd.getDate() + 6);
+
+      const card = mkDiv('week-card');
+      const head = mkDiv('week-head');
+      const title  = mkEl('span','week-head-title',`Week ${w+1} · ${fmt(wStart)} – ${fmt(wEnd)}`);
+      const badges = mkDiv('week-badges');
+      const bTotal = mkEl('span','badge badge-total','0.00 hrs'); bTotal.id=`wk-total-${w}`;
+      const bOT    = mkEl('span','badge badge-ot','');            bOT.id=`wk-ot-${w}`;
+      badges.append(bTotal, bOT);
+      head.append(title, badges);
+      card.appendChild(head);
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      let thHtml = '<tr><th style="width:76px">Day</th>';
+      for (let i=0;i<SESSIONS;i++) thHtml += `<th>Shift ${i+1}</th>`;
+      thHtml += '<th class="th-total">Hours</th></tr>';
+      thead.innerHTML = thHtml;
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      let weekMins = 0;
+
+      for (let d=0;d<7;d++) {
+        const di   = w*7+d;
+        const dd   = new Date(ps); dd.setDate(dd.getDate()+di);
+        const isWk = dd.getDay()===0||dd.getDay()===6;
+        const isTd = sameDay(dd, today);
+
+        const row = document.createElement('tr');
+        if (isWk) row.classList.add('weekend');
+        if (isTd) row.classList.add('today');
+
+        const dayTd = document.createElement('td');
+        dayTd.innerHTML = `<div class="day-label">${DAY_NAMES[d]}</div><div class="day-date">${dd.getMonth()+1}/${dd.getDate()}</div>`;
+        row.appendChild(dayTd);
+
+        let dayMins=0;
+        for (let i=0;i<SESSIONS;i++) {
+          const inVal  = data[`d${di}s${i}in`]  || '';
+          const outVal = data[`d${di}s${i}out`] || '';
+          const td   = document.createElement('td');
+          const pair = mkDiv('session-pair');
+          const inEl  = mkInput('in',  di, i, inVal);
+          const outEl = mkInput('out', di, i, outVal);
+          const arr   = mkEl('span','arrow','→');
+          const nowB  = document.createElement('button');
+          nowB.className='now-btn'; nowB.title='Use current time'; nowB.textContent='↻';
+          nowB.addEventListener('click', ()=>{
+            const t = !inEl.value ? inEl : outEl;
+            t.value=nowStr(); t.dispatchEvent(new Event('change'));
+          });
+          pair.append(inEl,arr,outEl,nowB);
+          td.appendChild(pair); row.appendChild(td);
+          markValidity(inEl); markValidity(outEl);
+          dayMins+=sessMins(inVal,outVal);
+        }
+
+        const totTd = document.createElement('td');
+        totTd.className='daily-total'+(dayMins>0?' has-hours':'');
+        totTd.id=`day-total-${di}`;
+        totTd.textContent=dayMins>0?toHrs(dayMins):'—';
+        row.appendChild(totTd);
+        tbody.appendChild(row);
+        weekMins+=dayMins;
+      }
+
+      table.appendChild(tbody);
+      card.appendChild(table);
+      weeksEl.appendChild(card);
+
+      updateWeekBadges(w, weekMins);
+      const wOT = calcWeekOT(weekMins);
+      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot;
+    }
+
+    renderPeriodSummary(totalMins, regularMins, otMins, ps, pe);
+  }
+
+  // ── DOM helpers ───────────────────────────────────────────────────
+  function mkDiv(cls) { const e=document.createElement('div'); if(cls) e.className=cls; return e; }
+  function mkEl(tag,cls,txt) { const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
+  function mkInput(kind,di,si,val) {
+    const el=document.createElement('input');
+    el.type='text'; el.placeholder=kind; el.value=val;
+    el.dataset.day=di; el.dataset.sess=si; el.dataset.kind=kind;
+    el.addEventListener('change',onTimeChange);
+    el.addEventListener('blur',onTimeBlur);
+    return el;
+  }
+  function markValidity(el) {
+    if (!el.value.trim()) { el.classList.remove('invalid'); return; }
+    el.classList.toggle('invalid', parseTime(el.value)===null);
+  }
+
+  // ── Input events ──────────────────────────────────────────────────
+  function onTimeChange(e) {
+    const el=e.target;
+    setCellValue(currentOffset,+el.dataset.day,+el.dataset.sess,el.dataset.kind,el.value.trim());
+    recalcDay(+el.dataset.day); markValidity(el);
+  }
+  function onTimeBlur(e) {
+    const el=e.target, p=parseTime(el.value);
+    if (p!==null) {
+      const n=formatTime(p);
+      if (n!==el.value) {
+        el.value=n;
+        setCellValue(currentOffset,+el.dataset.day,+el.dataset.sess,el.dataset.kind,n);
+        recalcDay(+el.dataset.day);
+      }
+    }
+    markValidity(el);
+  }
+  function recalcDay(di) {
+    const data=getPeriodData(currentOffset);
+    let dayMins=0;
+    for (let i=0;i<SESSIONS;i++) dayMins+=sessMins(data[`d${di}s${i}in`]||'',data[`d${di}s${i}out`]||'');
+    const cell=document.getElementById(`day-total-${di}`);
+    if (cell) { cell.textContent=dayMins>0?toHrs(dayMins):'—'; cell.className='daily-total'+(dayMins>0?' has-hours':''); }
+    const ps=getPeriodStart(currentOffset), pe=new Date(ps); pe.setDate(pe.getDate()+PERIOD_DAYS-1);
+    let totalMins=0,regularMins=0,otMins=0;
+    for (let w=0;w<2;w++) {
+      let wk=0;
+      for (let d=0;d<7;d++) { const idx=w*7+d; for (let i=0;i<SESSIONS;i++) wk+=sessMins(data[`d${idx}s${i}in`]||'',data[`d${idx}s${i}out`]||''); }
+      updateWeekBadges(w,wk);
+      const wOT=calcWeekOT(wk); totalMins+=wk; regularMins+=wOT.regular; otMins+=wOT.ot;
+    }
+    renderPeriodSummary(totalMins,regularMins,otMins,ps,pe);
+  }
+
+  // ── Navigation ────────────────────────────────────────────────────
+  document.getElementById('prev-btn').addEventListener('click',()=>{ currentOffset--; render(); });
+  document.getElementById('next-btn').addEventListener('click',()=>{ currentOffset++; render(); });
+  document.getElementById('today-btn').addEventListener('click',()=>{ currentOffset=offsetForDate(new Date()); render(); });
+  document.getElementById('clear-btn').addEventListener('click',()=>{
+    if (confirm('Clear all entries for this pay period? This cannot be undone.')) { clearPeriod(currentOffset); render(); }
+  });
+
+  // ── Settings ──────────────────────────────────────────────────────
+  function openSettings() {
+    const cfg=getSettings();
+    document.getElementById('set-name').value    = cfg.name    || '';
+    document.getElementById('set-company').value = cfg.company || '';
+    document.getElementById('set-empid').value   = cfg.empid   || '';
+    document.getElementById('set-anchor').value  = cfg.anchor  || DEFAULT_ANCHOR;
+    document.getElementById('set-ot-on').checked = !!cfg.overtimeEnabled;
+    document.getElementById('set-ot-hrs').value  = cfg.otHours || 40;
+    document.getElementById('ot-sub').classList.toggle('hidden',!cfg.overtimeEnabled);
+    document.getElementById('settings-panel').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.getElementById('set-name').focus();
+  }
+  function closeSettings() {
+    document.getElementById('settings-panel').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+  }
+
+  document.getElementById('settings-btn').addEventListener('click',openSettings);
+  document.getElementById('close-settings').addEventListener('click',closeSettings);
+  document.getElementById('sp-cancel').addEventListener('click',closeSettings);
+  document.getElementById('overlay').addEventListener('click',closeSettings);
+  document.getElementById('set-ot-on').addEventListener('change',e=>{
+    document.getElementById('ot-sub').classList.toggle('hidden',!e.target.checked);
+  });
+  document.getElementById('sp-save').addEventListener('click',()=>{
+    saveSettings({
+      name:            document.getElementById('set-name').value.trim(),
+      company:         document.getElementById('set-company').value.trim(),
+      empid:           document.getElementById('set-empid').value.trim(),
+      anchor:          document.getElementById('set-anchor').value || DEFAULT_ANCHOR,
+      overtimeEnabled: document.getElementById('set-ot-on').checked,
+      otHours:         parseFloat(document.getElementById('set-ot-hrs').value)||40,
+    });
+    closeSettings();
+    currentOffset=offsetForDate(new Date());
+    render();
+    refreshBanner();
+  });
+
+  // ── PDF Export ────────────────────────────────────────────────────
+  document.getElementById('pdf-btn').addEventListener('click', exportPDF);
+  function exportPDF() {
+    if (!window.jspdf) { alert('PDF library still loading. Please try again.'); return; }
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation:'landscape', unit:'pt', format:'letter' });
+    const cfg=getSettings(), ps=getPeriodStart(currentOffset);
+    const pe=new Date(ps); pe.setDate(pe.getDate()+PERIOD_DAYS-1);
+    const dat=getPeriodData(currentOffset);
+    const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=42;
+
+    doc.setFillColor(201,98,43); doc.rect(0,0,W,5,'F');
+    let y=M+8;
+
+    doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,36,48);
+    doc.text('TIMESHEET',M,y);
+    if (cfg.company) { doc.setFontSize(11); doc.setTextColor(201,98,43); doc.text(cfg.company,W-M,y,{align:'right'}); }
+
+    y+=6; doc.setDrawColor(228,224,214); doc.setLineWidth(0.5); doc.line(M,y,W-M,y); y+=14;
+
+    const c1=M, c2=M+195, c3=M+455;
+    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(138,132,120);
+    doc.text('EMPLOYEE',c1,y); doc.text('PAY PERIOD',c2,y); doc.text('DATE GENERATED',c3,y);
+    y+=12;
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(27,36,48);
+    doc.text(cfg.name||'Employee',c1,y);
+    doc.text(`${fmt(ps,{month:'short',day:'numeric',year:'numeric'})} – ${fmt(pe,{month:'short',day:'numeric',year:'numeric'})}`,c2,y);
+    doc.text(new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),c3,y);
+    if (cfg.empid) { y+=11; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(138,132,120); doc.text(`Employee ID: ${cfg.empid}`,c1,y); }
+    y+=18;
+
+    let totalMins=0,regularMins=0,otMins=0;
+    // Column widths must sum to W-M*2 (708pt for landscape letter) to match the summary bar
+    // Day:36 + Date:48 + In1:94 + Out1:94 + In2:94 + Out2:94 + In3:94 + Out3:94 + Hrs:60 = 708
+    const CW={0:36,1:48,2:94,3:94,4:94,5:94,6:94,7:94,8:60};
+
+    for (let w=0;w<2;w++) {
+      const wStart=new Date(ps); wStart.setDate(wStart.getDate()+w*7);
+      const wEnd=new Date(wStart); wEnd.setDate(wEnd.getDate()+6);
+      doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(201,98,43);
+      doc.text(`WEEK ${w+1}  ·  ${fmt(wStart,{month:'short',day:'numeric'})} – ${fmt(wEnd,{month:'short',day:'numeric',year:'numeric'})}`,M,y);
+      y+=5;
+      const body=[],wknd=[];
+      let weekMins=0;
+      for (let d=0;d<7;d++) {
+        const di=w*7+d, dd=new Date(ps); dd.setDate(dd.getDate()+di);
+        const row=[DAY_NAMES[d],`${dd.getMonth()+1}/${dd.getDate()}`];
+        let dayMins=0;
+        for (let i=0;i<SESSIONS;i++) { const iv=dat[`d${di}s${i}in`]||'',ov=dat[`d${di}s${i}out`]||''; row.push(iv,ov); dayMins+=sessMins(iv,ov); }
+        row.push(dayMins>0?toHrs(dayMins):'');
+        body.push(row); wknd.push(dd.getDay()===0||dd.getDay()===6); weekMins+=dayMins;
+      }
+      const wOT=calcWeekOT(weekMins);
+      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot;
+      const footRows=[[
+        {content:`Week ${w+1} Total`,colSpan:8,styles:{halign:'right',fontStyle:'bold',fillColor:[239,235,226],textColor:[27,36,48],fontSize:8}},
+        {content:toHrs(weekMins),styles:{halign:'center',fontStyle:'bold',fillColor:[239,235,226],textColor:[27,36,48],fontSize:9}}
+      ]];
+      if (cfg.overtimeEnabled&&wOT.ot>0) {
+        footRows.push([{content:`Regular: ${toHrs(wOT.regular)} hrs  ·  Overtime: ${toHrs(wOT.ot)} hrs`,colSpan:9,
+          styles:{halign:'right',fontStyle:'italic',fillColor:[251,234,224],textColor:[168,79,34],fontSize:8}}]);
+      }
+      doc.autoTable({
+        startY:y,margin:{left:M,right:M},tableWidth:W-M*2,
+        head:[['Day','Date','Shift 1 In','Shift 1 Out','Shift 2 In','Shift 2 Out','Shift 3 In','Shift 3 Out','Hours']],
+        body,foot:footRows,theme:'plain',
+        styles:{fontSize:8,cellPadding:{top:5,right:6,bottom:5,left:6},font:'helvetica',lineColor:[228,224,214],lineWidth:0.5,textColor:[27,36,48],overflow:'ellipsize',halign:'center'},
+        headStyles:{fillColor:[239,235,226],textColor:[138,132,120],fontStyle:'bold',fontSize:7,halign:'center'},
+        columnStyles:{
+          0:{cellWidth:CW[0],fontStyle:'bold',halign:'center'},
+          1:{cellWidth:CW[1],textColor:[138,132,120],halign:'center'},
+          2:{cellWidth:CW[2],halign:'center'},3:{cellWidth:CW[3],halign:'center'},
+          4:{cellWidth:CW[4],halign:'center'},5:{cellWidth:CW[5],halign:'center'},
+          6:{cellWidth:CW[6],halign:'center'},7:{cellWidth:CW[7],halign:'center'},
+          8:{cellWidth:CW[8],halign:'center',fontStyle:'bold'}},
+        willDrawCell(cd) { if (cd.section==='body'&&wknd[cd.row.index]) doc.setFillColor(251,250,247); },
+      });
+      y=doc.lastAutoTable.finalY+12;
+    }
+
+    const barH=cfg.overtimeEnabled?42:30;
+    doc.setFillColor(27,36,48); doc.roundedRect(M,y,W-M*2,barH,3,3,'F');
+    if (cfg.overtimeEnabled) {
+      const segW=(W-M*2)/3;
+      const cx=[M+segW*.5,M+segW*1.5,M+segW*2.5];
+      const labels=['TOTAL HOURS','REGULAR HOURS','OVERTIME HOURS'];
+      const values=[toHrs(totalMins),toHrs(regularMins),toHrs(otMins)];
+      const colors=[[247,245,240],[247,245,240],[245,196,164]];
+      for (let i=0;i<3;i++) {
+        doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(180,174,164);
+        doc.text(labels[i],cx[i],y+13,{align:'center'});
+        doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(...colors[i]);
+        doc.text(values[i],cx[i],y+29,{align:'center'});
+        if (i<2) { doc.setDrawColor(58,68,82); doc.setLineWidth(0.5); doc.line(M+segW*(i+1),y+8,M+segW*(i+1),y+barH-8); }
+      }
+    } else {
+      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(180,174,164);
+      doc.text('PAY PERIOD TOTAL',M+14,y+barH/2+3.5);
+      doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(247,245,240);
+      doc.text(`${toHrs(totalMins)} hours`,W-M-14,y+barH/2+4,{align:'right'});
+    }
+
+    // Timestamp — bottom center, no second page
+    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(154,163,175);
+    doc.text(`Generated ${new Date().toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'})}`,W/2,H-18,{align:'center'});
+
+    // Build name part: LastName_FirstName with capitalized initials
+    const cap = s => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+    const nameParts = (cfg.name||'Employee').trim().split(/\s+/);
+    const firstName = cap(nameParts[0]);
+    const lastName  = nameParts.length > 1 ? cap(nameParts[nameParts.length - 1]) : '';
+    const namePart  = lastName ? `${lastName}_${firstName}` : firstName;
+    // Build date range: e.g. Jun5-Jun18 2026
+    const fmtD = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'}).replace(/\s/g,'');
+    const dateRange = `${fmtD(ps)}-${fmtD(pe)} ${ps.getFullYear()}`;
+    doc.save(`Timesheet_${namePart} [${dateRange}].pdf`);
+  }
+
+  // ── Banner ────────────────────────────────────────────────────────
+  function refreshBanner() {
+    const banner = document.getElementById('banner');
+    banner.style.display = !getSettings().name ? 'flex' : 'none';
+  }
+  document.getElementById('banner-btn').addEventListener('click', openSettings);
+  document.getElementById('banner-close').addEventListener('click', () => {
+    document.getElementById('banner').style.display = 'none';
+  });
+
+  // ── Init ──────────────────────────────────────────────────────────
+  currentOffset = offsetForDate(new Date());
+  render();
+  refreshBanner();
+
+})();
+</script>
+</body>
+</html>
