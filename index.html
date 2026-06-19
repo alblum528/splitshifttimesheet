@@ -377,9 +377,14 @@ button:disabled { opacity: .4; cursor: not-allowed; pointer-events: none; }
 }
 
 /* Collapse sidebar on small screens */
+@media (min-width: 1061px) {
+  /* Shrink toolbar to match main-content width (exclude sidebar + gap) */
+  .toolbar { margin-right: calc(300px + 28px); }
+}
 @media (max-width: 1060px) {
   .ad-sidebar { display: none; }
   .page-wrap { padding: 18px 20px; }
+  .toolbar-inner { padding: 0 20px; }
 }
 
 /* ══════════════════════════════════════════
