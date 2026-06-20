@@ -704,6 +704,11 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
+  max-height: 110px; /* 90px ad + 20px padding — prevents unfilled slot from expanding */
+}
+.ad-top-wrap ins {
+  min-height: 0 !important;
+  max-height: 90px !important;
 }
 
 /* ══════════════════════════════════════════
