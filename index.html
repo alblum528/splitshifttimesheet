@@ -843,6 +843,32 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 }
 
 /* ══════════════════════════════════════════
+   TOAST NOTIFICATION
+══════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 11px 20px;
+  border-radius: var(--r);
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
 .site-footer {
@@ -959,6 +985,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
       <button id="clear-btn">Clear</button>
       <button class="dark" id="settings-btn">Settings</button>
       <button class="primary" id="pdf-btn">Export PDF</button>
+      <button id="email-btn" title="Email timesheet to payroll coordinator">Email PDF</button>
     </div>
   </div>
 </div>
@@ -990,6 +1017,13 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     <div class="form-group">
       <label>Project Name <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
       <input id="set-project" type="text" placeholder="e.g. Client Name, Job Site, Contract #">
+    </div>
+
+    <p class="sp-section">Payroll</p>
+    <div class="form-group">
+      <label>Payroll Coordinator Email</label>
+      <input id="set-payroll-email" type="email" placeholder="payroll@company.com" autocomplete="off">
+      <p class="form-hint">Pre-fills the To address when you click Email PDF.</p>
     </div>
 
     <p class="sp-section">Pay Period</p>
@@ -1051,18 +1085,16 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
          INTERWEEK AD — visible on mobile/tablet only (≤ 1060px)
     ════════════════════════════════════════ -->
     <div class="ad-inline-mobile">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-           crossorigin="anonymous"></script>
-      <!-- Interweek_SplitShift -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4664800783455318"
-           data-ad-slot="5337575821"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- Interweek_SplitShift -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="5337575821"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     </div>
 
     <div id="week-1"></div>
@@ -1077,18 +1109,16 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     ════════════════════════════════════════ -->
     <div class="ad-inline-mobile">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-           crossorigin="anonymous"></script>
-      <!-- AboveTotals_SplitShift -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4664800783455318"
-           data-ad-slot="4024494155"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- AboveTotals_SplitShift -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="4024494155"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     </div>
 
     <!-- Period summary (JS-rendered) -->
@@ -1523,7 +1553,8 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     document.getElementById('set-name').value    = cfg.name    || '';
     document.getElementById('set-company').value = cfg.company || '';
     document.getElementById('set-empid').value   = cfg.empid   || '';
-    document.getElementById('set-project').value = cfg.project || '';
+    document.getElementById('set-project').value       = cfg.project      || '';
+    document.getElementById('set-payroll-email').value = cfg.payrollEmail || '';
     document.getElementById('set-anchor').value  = cfg.anchor  || DEFAULT_ANCHOR;
     document.getElementById('set-ot-on').checked = !!cfg.overtimeEnabled;
     document.getElementById('set-ot-hrs').value  = cfg.otHours || 40;
@@ -1550,6 +1581,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
       company:         document.getElementById('set-company').value.trim(),
       empid:           document.getElementById('set-empid').value.trim(),
       project:         document.getElementById('set-project').value.trim(),
+      payrollEmail:    document.getElementById('set-payroll-email').value.trim(),
       anchor:          document.getElementById('set-anchor').value || DEFAULT_ANCHOR,
       overtimeEnabled: document.getElementById('set-ot-on').checked,
       otHours:         parseFloat(document.getElementById('set-ot-hrs').value)||40,
@@ -1562,6 +1594,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 
   // ── PDF Export ────────────────────────────────────────────────────
   document.getElementById('pdf-btn').addEventListener('click', exportPDF);
+  document.getElementById('email-btn').addEventListener('click', emailPDF);
   function exportPDF() {
     if (!window.jspdf) { alert('PDF library still loading. Please try again.'); return; }
     const { jsPDF } = window.jspdf;
@@ -1680,6 +1713,80 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     const fmtD = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'}).replace(/\s/g,'');
     const dateRange = `${fmtD(ps)}-${fmtD(pe)} ${ps.getFullYear()}`;
     doc.save(`Timesheet_${namePart} [${dateRange}].pdf`);
+  }
+
+  // ── Email PDF ─────────────────────────────────────────────────────
+  function emailPDF() {
+    const cfg = getSettings();
+
+    if (!cfg.payrollEmail) {
+      openSettings();
+      showToast('Enter a Payroll Coordinator Email in Settings first.');
+      return;
+    }
+
+    // Calculate period totals for email body
+    const ps  = getPeriodStart(currentOffset);
+    const pe  = new Date(ps); pe.setDate(pe.getDate() + PERIOD_DAYS - 1);
+    const dat = getPeriodData(currentOffset);
+    let totalMins = 0, regularMins = 0, otMins = 0;
+    for (let w = 0; w < 2; w++) {
+      let wk = 0;
+      for (let d = 0; d < 7; d++) {
+        const idx = w * 7 + d;
+        for (let i = 0; i < SESSIONS; i++) wk += sessMins(dat[`d${idx}s${i}in`] || '', dat[`d${idx}s${i}out`] || '');
+      }
+      const wOT = calcWeekOT(wk);
+      totalMins += wk; regularMins += wOT.regular; otMins += wOT.ot;
+    }
+
+    const periodStr = `${fmt(ps, {month:'long', day:'numeric', year:'numeric'})} – ${fmt(pe, {month:'long', day:'numeric', year:'numeric'})}`;
+
+    // Download the PDF first
+    exportPDF();
+
+    // Build email body
+    const lines = [
+      'Hi,',
+      '',
+      `Please find my timesheet attached for the pay period ${periodStr}.`,
+      '',
+      `Employee: ${cfg.name || '—'}`,
+    ];
+    if (cfg.company)  lines.push(`Company: ${cfg.company}`);
+    if (cfg.project)  lines.push(`Project: ${cfg.project}`);
+    if (cfg.empid)    lines.push(`Employee ID: ${cfg.empid}`);
+    lines.push('');
+    lines.push(`Total Hours: ${toHrs(totalMins)}`);
+    if (cfg.overtimeEnabled) {
+      lines.push(`Regular Hours: ${toHrs(regularMins)}`);
+      lines.push(`Overtime Hours: ${toHrs(otMins)}`);
+    }
+    lines.push('', 'Please let me know if you have any questions.', '', cfg.name || '');
+
+    const subject = `Timesheet – ${cfg.name || 'Employee'} – ${periodStr}`;
+    const mailto  = `mailto:${encodeURIComponent(cfg.payrollEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+    // Small delay so the PDF download registers before the mailto opens
+    setTimeout(() => {
+      window.location.href = mailto;
+      showToast('PDF downloaded — attach it to the email that just opened.');
+    }, 400);
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────────
+  function showToast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast';
+      t.className = 'toast';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 4000);
   }
 
   // ── Banner ────────────────────────────────────────────────────────
