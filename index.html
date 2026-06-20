@@ -5,7 +5,7 @@
      crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='4' fill='%231b2430'/><rect x='0' y='14' width='2' height='14' rx='.4' fill='%237090a8'/><rect x='4' y='10' width='3' height='20' rx='.4' fill='%238aa4bc'/><rect x='9' y='16' width='2' height='10' rx='.4' fill='%237090a8'/><rect x='13' y='8' width='3' height='24' rx='.4' fill='%238aa4bc'/><rect x='18' y='13' width='2' height='16' rx='.4' fill='%237090a8'/><rect x='22' y='11' width='2' height='19' rx='.4' fill='%238aa4bc'/><rect x='26' y='9' width='3' height='22' rx='.4' fill='%23c9622b'/><rect x='31' y='12' width='2' height='16' rx='.4' fill='%23c9622b'/><rect x='35' y='8' width='3' height='24' rx='.4' fill='%23c9622b'/></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='4' fill='%231b2430'/><rect x='0' y='14' width='2' height='14' rx='.4' fill='%237090a8'/><rect x='4' y='10' width='3' height='20' rx='.4' fill='%238aa4bc'/><rect x='9' y='16' width='2' height='10' rx='.4' fill='%237090a8'/><rect x='13' y='8' width='3' height='24' rx='.4' fill='%238aa4bc'/><rect x='18' y='13' width='2' height='16' rx='.4' fill='%237090a8'/><rect x='22' y='11' width='2' height='19' rx='.4' fill='%238aa4bc'/><rect x='26' y='9' width='3' height='22' rx='.4' fill='%23c9622b'/><rect x='31' y='12' width='2' height='16' rx='.4' fill='%23c9622b'/><rect x='35' y='8' width='3' height='24' rx='.4' fill='%23c9622b'/></svg>">
 
 <!-- ═══ Primary SEO ═══ -->
 <title>Free Split-Shift Timesheet</title>
@@ -843,6 +843,33 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 }
 
 /* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.site-footer {
+  background: var(--nav-bg);
+  padding: 20px 28px;
+  margin-top: 8px;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-copy { font-size: 12px; color: rgba(247,245,240,.4); }
+.footer-links { display: flex; gap: 16px; }
+.footer-links a {
+  font-size: 12px;
+  color: rgba(247,245,240,.55);
+  text-decoration: none;
+  transition: color .15s;
+}
+.footer-links a:hover { color: var(--nav-text); }
+
+/* ══════════════════════════════════════════
    PRINT
 ══════════════════════════════════════════ */
 @media print {
@@ -1152,6 +1179,17 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 Calculate My Hours. All rights reserved.</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Timesheet</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
 <!-- ══════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════════ -->
@@ -1164,7 +1202,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   const SESSIONS     = 3;
   const PERIOD_DAYS  = 14;
   const DAY_NAMES    = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const DEFAULT_ANCHOR = '2025-01-06';
+  const DEFAULT_ANCHOR = '2026-06-15';
 
   let currentOffset = 0;
 
