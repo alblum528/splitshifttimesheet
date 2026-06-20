@@ -8,6 +8,7 @@
 <meta name="description" content="Get in touch with the Calculate My Hours team. We welcome feedback, bug reports, and feature requests.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.splitshifttimesheet.com/contact.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
@@ -211,6 +212,61 @@ body {
   border-top: 1px solid var(--border);
 }
 
+/* Ad placeholders */
+.ad-placeholder {
+  background: #f0ece3;
+  border: 1px dashed #cdc7bb;
+  border-radius: var(--r-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #b0a898;
+}
+.ad-placeholder-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; }
+.ad-placeholder-size  { font-size: 9px; opacity: .6; }
+
+/* Top / bottom ad bars */
+.ad-top-wrap, .ad-bottom-wrap {
+  overflow: hidden;
+  background: var(--bg);
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ad-top-wrap  { border-bottom: 1px solid var(--border); }
+.ad-bottom-wrap { border-top: 1px solid var(--border); }
+.ad-top-wrap ins, .ad-bottom-wrap ins { min-height: 0 !important; height: 90px !important; }
+
+/* Outer layout — centers content and hosts side ads */
+.page-outer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.page-outer .page-wrap { margin: 0; flex: 1; min-width: 0; }
+
+/* Side ad columns */
+.ad-sidebar-left,
+.ad-sidebar-right {
+  width: 160px;
+  flex-shrink: 0;
+  display: none;
+  position: sticky;
+  top: calc(var(--brand-h) + 16px);
+  padding-top: 40px;
+}
+@media (min-width: 1160px) {
+  .ad-sidebar-left,
+  .ad-sidebar-right { display: block; }
+}
+
 /* Footer */
 .site-footer {
   background: var(--nav-bg);
@@ -242,7 +298,7 @@ body {
 <div class="brand-bar">
   <div class="brand-bar-inner">
     <a class="brand-left" href="index.html">
-      <svg width="40" height="24" viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="40" height="24" viewBox="0 0 40 24" xmlns="https://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="0"  y="6"  width="2" height="14" rx=".4" fill="#7090a8"/>
         <rect x="4"  y="2"  width="3" height="20" rx=".4" fill="#8aa4bc"/>
         <rect x="9"  y="8"  width="2" height="10" rx=".4" fill="#7090a8"/>
@@ -265,6 +321,24 @@ body {
     </nav>
   </div>
 </div>
+
+<!-- Top ad — replace placeholder with AdSense <ins> tag when slot is ready -->
+<div class="ad-top-wrap">
+  <div class="ad-placeholder" style="width:728px;max-width:100%;height:90px">
+    <span class="ad-placeholder-label">Advertisement</span>
+    <span class="ad-placeholder-size">728×90 leaderboard</span>
+  </div>
+</div>
+
+<div class="page-outer">
+
+  <!-- Left sidebar ad — replace placeholder with AdSense <ins> tag when slot is ready -->
+  <aside class="ad-sidebar-left" aria-label="Advertisement">
+    <div class="ad-placeholder" style="width:160px;height:250px">
+      <span class="ad-placeholder-label">Ad</span>
+      <span class="ad-placeholder-size">160×250</span>
+    </div>
+  </aside>
 
 <div class="page-wrap">
   <div class="page-header">
@@ -323,6 +397,24 @@ body {
       </p>
 
     </form>
+  </div>
+</div>
+
+  <!-- Right sidebar ad — replace placeholder with AdSense <ins> tag when slot is ready -->
+  <aside class="ad-sidebar-right" aria-label="Advertisement">
+    <div class="ad-placeholder" style="width:160px;height:250px">
+      <span class="ad-placeholder-label">Ad</span>
+      <span class="ad-placeholder-size">160×250</span>
+    </div>
+  </aside>
+
+</div><!-- /.page-outer -->
+
+<!-- Bottom ad — replace placeholder with AdSense <ins> tag when slot is ready -->
+<div class="ad-bottom-wrap">
+  <div class="ad-placeholder" style="width:728px;max-width:100%;height:90px">
+    <span class="ad-placeholder-label">Advertisement</span>
+    <span class="ad-placeholder-size">728×90 leaderboard</span>
   </div>
 </div>
 
