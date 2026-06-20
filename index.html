@@ -711,12 +711,8 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
-  height: 110px; /* hard cap: 90px ad + 20px padding */
 }
-.ad-top-wrap ins {
-  min-height: 0 !important;
-  height: 90px !important;
-}
+
 
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLET (≤ 900px)
@@ -903,11 +899,9 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
      crossorigin="anonymous"></script>
 <!-- Top Bar Ad_SplitShift -->
 <ins class="adsbygoogle"
-     style="display:block"
+     style="display:inline-block;width:728px;height:90px"
      data-ad-client="ca-pub-4664800783455318"
-     data-ad-slot="6830284182"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     data-ad-slot="6830284182"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
