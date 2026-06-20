@@ -215,14 +215,21 @@ body {
   padding: 0 28px;
   position: sticky;
   top: 0;
-  z-index: 80;
+  z-index: 60;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .brand-bar-inner {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* On desktop, pull nav links in by the same amount the toolbar pulls right
+   so About/Contact sit above the Settings and Export PDF buttons */
+@media (min-width: 1061px) {
+  .brand-bar-inner { padding-right: calc(300px + 28px); }
 }
 .brand-left {
   display: flex;
@@ -704,11 +711,11 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
-  max-height: 110px; /* 90px ad + 20px padding — prevents unfilled slot from expanding */
+  height: 110px; /* hard cap: 90px ad + 20px padding */
 }
 .ad-top-wrap ins {
   min-height: 0 !important;
-  max-height: 90px !important;
+  height: 90px !important;
 }
 
 /* ══════════════════════════════════════════
@@ -958,6 +965,10 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     <div class="form-group">
       <label>Employee ID <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
       <input id="set-empid" type="text" placeholder="EMP-001">
+    </div>
+    <div class="form-group">
+      <label>Project Name <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input id="set-project" type="text" placeholder="e.g. Client Name, Job Site, Contract #">
     </div>
 
     <p class="sp-section">Pay Period</p>
@@ -1323,7 +1334,9 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     document.getElementById('toolbar-title').textContent =
       cfg.company ? `${cfg.company} Timesheet` : 'Timesheet';
     document.getElementById('header-employee').textContent =
-      cfg.name ? `Name: ${cfg.name}` : 'Name: — click ⚙ to set up';
+      cfg.name
+        ? (cfg.project ? `Name: ${cfg.name} · ${cfg.project}` : `Name: ${cfg.name}`)
+        : 'Name: — click Settings to set up';
     document.getElementById('period-nav-label').textContent =
       `${fmt(ps)} – ${fmt(pe, { month:'short', day:'numeric', year:'numeric' })}`;
 
@@ -1478,6 +1491,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     document.getElementById('set-name').value    = cfg.name    || '';
     document.getElementById('set-company').value = cfg.company || '';
     document.getElementById('set-empid').value   = cfg.empid   || '';
+    document.getElementById('set-project').value = cfg.project || '';
     document.getElementById('set-anchor').value  = cfg.anchor  || DEFAULT_ANCHOR;
     document.getElementById('set-ot-on').checked = !!cfg.overtimeEnabled;
     document.getElementById('set-ot-hrs').value  = cfg.otHours || 40;
@@ -1503,6 +1517,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
       name:            document.getElementById('set-name').value.trim(),
       company:         document.getElementById('set-company').value.trim(),
       empid:           document.getElementById('set-empid').value.trim(),
+      project:         document.getElementById('set-project').value.trim(),
       anchor:          document.getElementById('set-anchor').value || DEFAULT_ANCHOR,
       overtimeEnabled: document.getElementById('set-ot-on').checked,
       otHours:         parseFloat(document.getElementById('set-ot-hrs').value)||40,
@@ -1541,7 +1556,11 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     doc.text(cfg.name||'Employee',c1,y);
     doc.text(`${fmt(ps,{month:'short',day:'numeric',year:'numeric'})} – ${fmt(pe,{month:'short',day:'numeric',year:'numeric'})}`,c2,y);
     doc.text(new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),c3,y);
-    if (cfg.empid) { y+=11; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(138,132,120); doc.text(`Employee ID: ${cfg.empid}`,c1,y); }
+    if (cfg.empid || cfg.project) {
+      y+=11; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(138,132,120);
+      if (cfg.empid) doc.text(`Employee ID: ${cfg.empid}`,c1,y);
+      if (cfg.project) doc.text(`Project: ${cfg.project}`,c2,y);
+    }
     y+=18;
 
     let totalMins=0,regularMins=0,otMins=0;
