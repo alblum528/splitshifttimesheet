@@ -872,10 +872,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
       </svg>
       <h1 class="brand-name">Calculate My Hours</h1>
     </div>
-    <nav style="display:flex;gap:20px;align-items:center" aria-label="Site navigation">
-      <a href="about.html" style="font-size:12px;font-weight:500;color:rgba(247,245,240,.7);text-decoration:none;letter-spacing:.2px">About</a>
-      <a href="contact.html" style="font-size:12px;font-weight:500;color:rgba(247,245,240,.7);text-decoration:none;letter-spacing:.2px">Contact</a>
-    </nav>
+    <span class="brand-tagline">FREE SPLIT-SHIFT DAILY TIMESHEET</span>
   </div>
 </div>
 
@@ -1140,19 +1137,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 </script>
 
 <!-- ══════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
-<footer style="background:var(--nav-bg);padding:20px 28px;margin-top:8px">
-  <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-    <span style="font-size:12px;color:rgba(247,245,240,.4)">&copy; 2025 Calculate My Hours. All rights reserved.</span>
-    <nav style="display:flex;gap:16px" aria-label="Footer navigation">
-      <a href="about.html" style="font-size:12px;color:rgba(247,245,240,.55);text-decoration:none">About</a>
-      <a href="contact.html" style="font-size:12px;color:rgba(247,245,240,.55);text-decoration:none">Contact</a>
-    </nav>
-  </div>
-</footer>
-
-<!-- ══════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════════ -->
 <script>
@@ -1328,7 +1312,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     document.getElementById('toolbar-title').textContent =
       cfg.company ? `${cfg.company} Timesheet` : 'Timesheet';
     document.getElementById('header-employee').textContent =
-      cfg.name ? `Name: ${cfg.name}` : 'Name: — click Settings to set up';
+      cfg.name ? `Name: ${cfg.name}` : 'Name: — click ⚙ to set up';
     document.getElementById('period-nav-label').textContent =
       `${fmt(ps)} – ${fmt(pe, { month:'short', day:'numeric', year:'numeric' })}`;
 
