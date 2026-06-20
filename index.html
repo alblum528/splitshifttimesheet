@@ -1703,16 +1703,10 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(154,163,175);
     doc.text(`Generated ${new Date().toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'})}`,W/2,H-18,{align:'center'});
 
-    // Build name part: LastName_FirstName with capitalized initials
-    const cap = s => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
-    const nameParts = (cfg.name||'Employee').trim().split(/\s+/);
-    const firstName = cap(nameParts[0]);
-    const lastName  = nameParts.length > 1 ? cap(nameParts[nameParts.length - 1]) : '';
-    const namePart  = lastName ? `${lastName}_${firstName}` : firstName;
-    // Build date range: e.g. Jun5-Jun18 2026
+    // Filename: Timesheet - Name - Jun5-Jun18 2026.pdf
     const fmtD = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'}).replace(/\s/g,'');
     const dateRange = `${fmtD(ps)}-${fmtD(pe)} ${ps.getFullYear()}`;
-    doc.save(`Timesheet_${namePart} [${dateRange}].pdf`);
+    doc.save(`Timesheet - ${cfg.name||'Employee'} - ${dateRange}.pdf`);
   }
 
   // ── Email PDF ─────────────────────────────────────────────────────
