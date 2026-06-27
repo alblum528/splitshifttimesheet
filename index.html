@@ -725,32 +725,19 @@ ins.adsbygoogle {
 }
 
 /* ══════════════════════════════════════════
-   TOP AD WRAP
+   TOP / BOTTOM AD WRAP
+   Start at zero height — no space reserved until AdSense confirms a fill.
+   This prevents CLS from collapsing a reserved gap when no ad loads.
 ══════════════════════════════════════════ */
-.ad-top-wrap {
+.ad-top-wrap, .ad-bottom-wrap {
   text-align: center;
   overflow: hidden;
   max-width: 100%;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0;
+  padding: 0;
 }
-/* On mobile, collapse the top ad wrapper if no ad fills it */
-@media (max-width: 768px) {
-  .ad-top-wrap {
-    padding: 0;
-    border-bottom: none;
-  }
-  .ad-top-wrap ins {
-    min-height: 0 !important;
-    max-width: 100% !important;
-  }
-  /* Re-show border when ad slot fills (AdSense sets height via inline style) */
-  .ad-top-wrap:not(:empty) { border-bottom: 1px solid var(--border); }
-/* Collapse at all widths when AdSense marks slot unfilled */
-.ad-top-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-bottom: none !important; }
-.ad-bottom-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-top: none !important; }
-}
+.ad-top-wrap:has(ins[data-ad-status="filled"])    { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.ad-bottom-wrap:has(ins[data-ad-status="filled"]) { padding: 10px 0; border-top:    1px solid var(--border); }
 
 
 /* ══════════════════════════════════════════
@@ -1971,14 +1958,8 @@ ins.adsbygoogle {
   })();
 
 
-  // Collapse ad wrappers if slots remain empty (ad blocker or no fill)
-  setTimeout(function() {
-    document.querySelectorAll('.ad-top-wrap, .ad-bottom-wrap').forEach(function(w) {
-      var ins = w.querySelector('ins.adsbygoogle');
-      if (!ins || ins.offsetHeight > 0) return;
-      w.style.cssText += ';padding:0!important;border:none!important;height:0!important;overflow:hidden!important';
-    });
-  }, 3000);
+  // Ad wrappers start at zero height and only expand via CSS :has([data-ad-status="filled"])
+  // so no collapse logic needed — no CLS from unfilled slots.
 
 })(); // close outer IIFE
 
