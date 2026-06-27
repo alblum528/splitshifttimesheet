@@ -239,8 +239,8 @@ body {
 .ad-bottom-wrap { border-top: 1px solid var(--border); padding: 10px 0; }
 .ad-top-wrap ins, .ad-bottom-wrap ins { min-height: 0 !important; }
 /* Collapse wrapper when AdSense fills nothing */
-.ad-top-wrap:not(:has(ins[style])) { padding: 0; border-bottom: none; }
-.ad-bottom-wrap:not(:has(ins[style])) { padding: 0; border-top: none; }
+.ad-top-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-bottom: none !important; }
+.ad-bottom-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-top: none !important; }
 
 /* Outer layout — centers content and hosts side ads */
 .page-outer {
@@ -528,19 +528,30 @@ body {
       hBtn.setAttribute('aria-expanded', 'false');
     }
   });
+
+  // Collapse ad wrappers if slots remain empty (ad blocker or no fill)
+  setTimeout(function() {
+    document.querySelectorAll('.ad-top-wrap, .ad-bottom-wrap').forEach(function(w) {
+      var ins = w.querySelector('ins.adsbygoogle');
+      if (!ins || ins.offsetHeight > 0) return;
+      w.style.cssText += ';padding:0!important;border:none!important;height:0!important;overflow:hidden!important';
+    });
+  }, 3000);
 })();
 
-  const form = document.getElementById('contact-form');
-  const successMsg = document.getElementById('success-msg');
+(function() {
+  var form = document.getElementById('contact-form');
+  var successMsg = document.getElementById('success-msg');
+  if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn = form.querySelector('.submit-btn');
+    var btn = form.querySelector('.submit-btn');
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
     try {
-      const res = await fetch(form.action, {
+      var res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
@@ -556,4 +567,12 @@ body {
       }
     } catch(err) {
       btn.disabled = false;
- 
+      btn.innerHTML = 'Send Message';
+      alert('Something went wrong. Please check your connection and try again.');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
