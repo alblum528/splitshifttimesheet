@@ -158,8 +158,8 @@
   --toolbar-h: 62px;
 }
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 14px; overflow-x: hidden; }
-body { overflow-x: hidden;
+html { font-size: 14px; }
+body {
   font-family: Inter, "Segoe UI", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -256,6 +256,20 @@ body { overflow-x: hidden;
   color: rgba(247,245,240,.68);
   white-space: nowrap;
 }
+.brand-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.brand-nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(247,245,240,.65);
+  text-decoration: none;
+  transition: color .15s;
+  white-space: nowrap;
+}
+.brand-nav a:hover { color: var(--nav-text); }
 
 /* ══════════════════════════════════════════
    TOOLBAR (sticky, light)
@@ -764,7 +778,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 /* ══════════════════════════════════════════
    RESPONSIVE — MOBILE CARD LAYOUT (≤ 640px)
 ══════════════════════════════════════════ */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   /* Convert table rows into stacked day cards */
   table  { display: block; }
   thead  { display: none; }
@@ -936,7 +950,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 }
 .mobile-nav a:last-child { border-bottom: none; }
 .mobile-nav a:hover { color: #fff; background: rgba(255,255,255,.07); }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hamburger-btn { display: block; }
   .brand-bar nav { display: none; }
 }
@@ -985,6 +999,10 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   /* Ensure ads don't break layout */
   .ad-inline-mobile ins { max-width: 100% !important; width: 100% !important; }
   .ad-top-wrap ins { max-width: 100% !important; }
+
+  /* Ensure now-btn is always visible: cap input min-width so button isn't squeezed off */
+  .session-pair input { min-width: 60px; }
+  .now-btn { min-width: 26px; }
 }
 
 /* ══════════════════════════════════════════
