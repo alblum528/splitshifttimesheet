@@ -853,7 +853,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
 
   /* Session pair: stretch inputs to fill row */
   .session-pair { width: 100%; }
-  .session-pair input { flex: 1; width: auto; min-width: 0; }
+  .session-pair input { flex: 1 1 0px; min-width: 0; }
   .now-btn { flex-shrink: 0; }
 
   /* Week header */
@@ -1615,7 +1615,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   function mkEl(tag,cls,txt) { const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
   function mkInput(kind,di,si,val) {
     const el=document.createElement('input');
-    el.type='text'; el.placeholder=kind; el.value=val;
+    el.type='text'; el.size=5; el.placeholder=kind; el.value=val;
     el.dataset.day=di; el.dataset.sess=si; el.dataset.kind=kind;
     el.addEventListener('change',onTimeChange);
     el.addEventListener('blur',onTimeBlur);
