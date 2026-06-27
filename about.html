@@ -205,14 +205,15 @@ body {
 .ad-top-wrap, .ad-bottom-wrap {
   overflow: hidden;
   background: var(--bg);
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  max-width: 100%;
 }
-.ad-top-wrap  { border-bottom: 1px solid var(--border); }
-.ad-bottom-wrap { border-top: 1px solid var(--border); }
-.ad-top-wrap ins, .ad-bottom-wrap ins { min-height: 0 !important; height: 90px !important; }
+.ad-top-wrap  { border-bottom: 1px solid var(--border); padding: 10px 0; }
+.ad-bottom-wrap { border-top: 1px solid var(--border); padding: 10px 0; }
+.ad-top-wrap ins, .ad-bottom-wrap ins { min-height: 0 !important; }
+/* Collapse wrapper when AdSense fills nothing */
+.ad-top-wrap:not(:has(ins[style])) { padding: 0; border-bottom: none; }
+.ad-bottom-wrap:not(:has(ins[style])) { padding: 0; border-top: none; }
 
 /* Outer layout — centers content and hosts side ads */
 .page-outer {
