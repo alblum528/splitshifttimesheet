@@ -729,6 +729,19 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
 }
+/* On mobile, collapse the top ad wrapper if no ad fills it */
+@media (max-width: 768px) {
+  .ad-top-wrap {
+    padding: 0;
+    border-bottom: none;
+  }
+  .ad-top-wrap ins {
+    min-height: 0 !important;
+    max-width: 100% !important;
+  }
+  /* Re-show border only when ad slot is non-empty (AdSense sets height via inline style) */
+  .ad-top-wrap:not(:empty) { border-bottom: 1px solid var(--border); }
+}
 
 
 /* ══════════════════════════════════════════
