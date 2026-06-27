@@ -1957,4 +1957,16 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     });
     document.addEventListener('click', function(e) {
       if (!mNav.contains(e.target) && e.target !== hBtn && !hBtn.contains(e.target)) {
-        mNav.class
+        mNav.classList.remove('open');
+        hBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
+})(); // close outer IIFE
+
+
+</script>
+
+</body>
+</html>
