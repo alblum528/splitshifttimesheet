@@ -124,9 +124,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap"></noscript>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 <style>
 /* ── Design tokens (timespancalculator.com palette) ── */
 :root {
@@ -157,8 +158,8 @@
   --toolbar-h: 62px;
 }
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 14px; }
-body {
+html { font-size: 14px; overflow-x: hidden; }
+body { overflow-x: hidden;
   font-family: Inter, "Segoe UI", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -692,6 +693,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   text-align: center;
   margin: 14px 0;
   overflow: hidden;
+  max-width: 100%;
 }
 @media (max-width: 1060px) {
   .ad-inline-mobile { display: block; }
@@ -708,6 +710,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 .ad-top-wrap {
   text-align: center;
   overflow: hidden;
+  max-width: 100%;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
@@ -936,6 +939,52 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 @media (max-width: 640px) {
   .hamburger-btn { display: block; }
   .brand-bar nav { display: none; }
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — NARROW PHONES (≤ 430px, e.g. Samsung S25)
+══════════════════════════════════════════ */
+@media (max-width: 430px) {
+  /* Tighten page padding */
+  .page-wrap { padding: 8px; }
+
+  /* Toolbar: stack period nav and actions on separate rows */
+  .toolbar-inner { padding: 6px 8px; gap: 4px; row-gap: 4px; }
+  .period-nav { width: 100%; justify-content: center; order: 1; }
+  .toolbar-actions { width: 100%; justify-content: center; order: 2; display: flex; flex-wrap: wrap; gap: 4px; }
+  .toolbar-actions button { font-size: 11px; padding: 5px 8px; }
+
+  /* Compact week header */
+  .week-head { padding: 8px 12px; }
+  .week-head-title { font-size: 11px; }
+  .badge { font-size: 11px; padding: 2px 8px; }
+
+  /* Day card rows: tighter padding */
+  tbody tr { padding: 8px; }
+
+  /* Inputs: smaller text to fit more content */
+  .session-pair input { font-size: 11px; padding: 4px 5px; }
+  .now-btn { padding: 2px 5px; font-size: 10px; }
+  .arrow { font-size: 10px; }
+
+  /* Shift labels: smaller */
+  tbody td.shift-td::before { font-size: 8px; margin-bottom: 2px; }
+
+  /* Day label: tighter */
+  .day-label { font-size: 12px; }
+  .day-date { font-size: 10px; }
+  .daily-total { font-size: 13px; }
+
+  /* Period summary: tighter */
+  .ps-stat { padding: 12px 16px; }
+  .ps-stat-value { font-size: 22px; }
+  .ps-stat-label { font-size: 9px; }
+  .ps-footer { padding: 6px 16px; font-size: 10px; }
+
+  /* Ensure ads don't break layout */
+  .ad-inline-mobile ins { max-width: 100% !important; width: 100% !important; }
+  .ad-top-wrap ins { max-width: 100% !important; }
 }
 
 /* ══════════════════════════════════════════
