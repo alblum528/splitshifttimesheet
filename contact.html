@@ -234,13 +234,12 @@ body {
   background: var(--bg);
   text-align: center;
   max-width: 100%;
+  height: 0;
+  padding: 0;
 }
-.ad-top-wrap  { border-bottom: 1px solid var(--border); padding: 10px 0; }
-.ad-bottom-wrap { border-top: 1px solid var(--border); padding: 10px 0; }
-.ad-top-wrap ins, .ad-bottom-wrap ins { min-height: 0 !important; }
-/* Collapse wrapper when AdSense fills nothing */
-.ad-top-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-bottom: none !important; }
-.ad-bottom-wrap:has(ins[data-ad-status="unfilled"]) { padding: 0 !important; border-top: none !important; }
+.ad-top-wrap:has(ins[data-ad-status="filled"])    { height: auto; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.ad-bottom-wrap:has(ins[data-ad-status="filled"]) { height: auto; padding: 10px 0; border-top:    1px solid var(--border); }
+ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
 
 /* Outer layout — centers content and hosts side ads */
 .page-outer {
@@ -529,14 +528,7 @@ body {
     }
   });
 
-  // Collapse ad wrappers if slots remain empty (ad blocker or no fill)
-  setTimeout(function() {
-    document.querySelectorAll('.ad-top-wrap, .ad-bottom-wrap').forEach(function(w) {
-      var ins = w.querySelector('ins.adsbygoogle');
-      if (!ins || ins.offsetHeight > 0) return;
-      w.style.cssText += ';padding:0!important;border:none!important;height:0!important;overflow:hidden!important';
-    });
-  }, 3000);
+  // Ad wrappers start at height:0 and only expand via CSS :has([data-ad-status="filled"])
 })();
 
 (function() {

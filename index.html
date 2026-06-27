@@ -724,20 +724,18 @@ ins.adsbygoogle {
   max-width: 100% !important;
 }
 
-/* ══════════════════════════════════════════
-   TOP / BOTTOM AD WRAP
-   Start at zero height — no space reserved until AdSense confirms a fill.
-   This prevents CLS from collapsing a reserved gap when no ad loads.
-══════════════════════════════════════════ */
 .ad-top-wrap, .ad-bottom-wrap {
   text-align: center;
   overflow: hidden;
   max-width: 100%;
   background: var(--bg);
+  /* height:0 clips the hardcoded 90px <ins> until AdSense confirms a fill */
+  height: 0;
   padding: 0;
 }
-.ad-top-wrap:has(ins[data-ad-status="filled"])    { padding: 10px 0; border-bottom: 1px solid var(--border); }
-.ad-bottom-wrap:has(ins[data-ad-status="filled"]) { padding: 10px 0; border-top:    1px solid var(--border); }
+.ad-top-wrap:has(ins[data-ad-status="filled"])    { height: auto; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.ad-bottom-wrap:has(ins[data-ad-status="filled"]) { height: auto; padding: 10px 0; border-top:    1px solid var(--border); }
+ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
 
 
 /* ══════════════════════════════════════════
