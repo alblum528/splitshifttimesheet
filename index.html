@@ -126,8 +126,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap"></noscript>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<!-- jspdf is loaded on demand when the user clicks Export PDF -->
 <style>
 /* ── Design tokens (timespancalculator.com palette) ── */
 :root {
@@ -1083,8 +1082,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
      Replace .ad-placeholder div with AdSense <ins> tag
 ════════════════════════════════════════ -->
 <div class="ad-top-wrap">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- Top Bar Ad_SplitShift -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
@@ -1220,8 +1217,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
          INTERWEEK AD — visible on mobile/tablet only (≤ 1060px)
     ════════════════════════════════════════ -->
     <div class="ad-inline-mobile">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- Interweek_SplitShift -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
@@ -1244,8 +1239,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     ════════════════════════════════════════ -->
     <div class="ad-inline-mobile">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- AboveTotals_SplitShift -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
@@ -1296,8 +1289,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   ════════════════════════════════════ -->
   <aside class="ad-sidebar" aria-label="Advertisements">
     <!-- ADSENSE SLOT 1 — Medium Rectangle 300×250 -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- Right Top Ad_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1309,8 +1300,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
     <!-- ADSENSE SLOT 2 — Medium Rectangle 300×250 -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- Right Bottom Ad_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1331,8 +1320,6 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
      BOTTOM AD ZONE — Leaderboard 728×90
      Replace .ad-placeholder div with AdSense <ins> tag
 ════════════════════════════════════════ -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
-     crossorigin="anonymous"></script>
 <!-- Bottom Ad_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1730,8 +1717,27 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   // ── PDF Export ────────────────────────────────────────────────────
   document.getElementById('pdf-btn').addEventListener('click', exportPDF);
   document.getElementById('email-btn').addEventListener('click', emailPDF);
+  function loadJsPDF() {
+    if (window.jspdf) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s1 = document.createElement('script');
+      s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+      s1.onload = () => {
+        const s2 = document.createElement('script');
+        s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js';
+        s2.onload = resolve;
+        s2.onerror = reject;
+        document.head.appendChild(s2);
+      };
+      s1.onerror = reject;
+      document.head.appendChild(s1);
+    });
+  }
+
   function exportPDF() {
-    if (!window.jspdf) { alert('PDF library still loading. Please try again.'); return; }
+    loadJsPDF().then(_exportPDF).catch(() => alert('Could not load PDF library. Check your connection and try again.'));
+  }
+  function _exportPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ orientation:'landscape', unit:'pt', format:'letter' });
     const cfg=getSettings(), ps=getPeriodStart(currentOffset);
@@ -1872,7 +1878,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
     const periodStr = `${fmt(ps, {month:'long', day:'numeric', year:'numeric'})} – ${fmt(pe, {month:'long', day:'numeric', year:'numeric'})}`;
 
     // Download the PDF first
-    exportPDF();
+    loadJsPDF().then(_exportPDF).catch(() => alert('Could not load PDF library. Check your connection and try again.'));
 
     // Build email body
     const lines = [
