@@ -241,6 +241,47 @@ body {
   .ad-sidebar-right { display: block; }
 }
 
+/* Hamburger + mobile nav */
+.hamburger-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  color: rgba(247,245,240,.85);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.hamburger-btn svg { display: block; }
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--brand-h);
+  left: 0;
+  right: 0;
+  background: #131c27;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  z-index: 200;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(247,245,240,.8);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: background .1s, color .1s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover, .mobile-nav a.active { color: #fff; background: rgba(255,255,255,.07); }
+@media (max-width: 640px) {
+  .hamburger-btn { display: block; }
+  .brand-nav { display: none; }
+}
+
 /* Footer */
 .site-footer {
   background: var(--nav-bg);
@@ -296,8 +337,20 @@ body {
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none" aria-hidden="true">
+        <rect y="0" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="8" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
   </div>
 </div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Timesheet</a>
+  <a href="about.html" class="active">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
 <!-- Top ad — replace placeholder with AdSense <ins> tag when slot is ready -->
 <div class="ad-top-wrap">
@@ -439,5 +492,29 @@ body {
   </div>
 </footer>
 
+<script>
+(function() {
+  var hBtn = document.getElementById('hamburger-btn');
+  var mNav = document.getElementById('mobile-nav');
+  if (!hBtn || !mNav) return;
+  hBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var open = mNav.classList.toggle('open');
+    hBtn.setAttribute('aria-expanded', open);
+  });
+  mNav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mNav.classList.remove('open');
+      hBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!mNav.contains(e.target) && e.target !== hBtn && !hBtn.contains(e.target)) {
+      mNav.classList.remove('open');
+      hBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 </body>
 </html>
