@@ -848,6 +848,9 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   tbody td.shift-td-1::before { content: 'Shift 2'; }
   tbody td.shift-td-2::before { content: 'Shift 3'; }
 
+  /* Card overflow: visible so now-btn isn't clipped at right edge */
+  .week-card { overflow: visible; }
+
   /* Session pair: stretch inputs to fill row */
   .session-pair { width: 100%; }
   .session-pair input { flex: 1; width: auto; min-width: 0; }
@@ -985,8 +988,9 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   .week-head-title { font-size: 11px; }
   .badge { font-size: 11px; padding: 2px 8px; }
 
-  /* Day card rows: tighter padding */
+  /* Day card rows: tighter padding; right buffer so now-btn isn't flush with card edge */
   tbody tr { padding: 8px; }
+  tbody td.shift-td { padding-right: 4px; }
 
   /* Inputs: smaller text to fit more content */
   .session-pair input { font-size: 11px; padding: 4px 5px; }
