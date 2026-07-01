@@ -1,0 +1,64 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "sitemap.xml"
+      - ".github/workflows/**"
+  schedule:
+    - cron: "0 6 * * 1"   # weekly, Monday 06:00 UTC — refreshes lastmod dates
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          BASE_URL="https://www.splitshifttimesheet.com"
+          TODAY=$(date +%Y-%m-%d)
+          TMP=$(mktemp)
+
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > "$TMP"
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "$TMP"
+
+          # every top-level .html file, index.html first (priority 1.0), rest priority 0.8
+          for f in $(find . -maxdepth 1 -name "*.html" | sed 's|^\./||' | sort); do
+            if [ "$f" = "index.html" ]; then
+              LOC="$BASE_URL/"
+              PRIORITY="1.0"
+            else
+              LOC="$BASE_URL/$f"
+              PRIORITY="0.8"
+            fi
+            {
+              echo "  <url>"
+              echo "    <loc>${LOC}</loc>"
+              echo "    <lastmod>${TODAY}</lastmod>"
+              echo "    <changefreq>monthly</changefreq>"
+              echo "    <priority>${PRIORITY}</priority>"
+              echo "  </url>"
+            } >> "$TMP"
+          done
+
+          echo '</urlset>' >> "$TMP"
+          mv "$TMP" sitemap.xml
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-update sitemap.xml"
+            git push
+          else
+            echo "No changes to sitemap.xml"
+          fi
