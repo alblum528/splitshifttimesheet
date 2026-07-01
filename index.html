@@ -131,35 +131,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap"></noscript>
 <!-- jspdf is loaded on demand when the user clicks Export PDF -->
 <style>
 /* ── Design tokens (timespancalculator.com palette) ── */
 :root {
-  --bg:          #f7f5f0;
+  --bg:          #f8fafc;
   --surface:     #ffffff;
-  --border:      #e4e0d6;
-  --section-bg:  #efebe2;
-  --muted-bg:    #fbfaf7;
-  --text:        #1b2430;
-  --text-2:      #3a4452;
-  --muted:       #8a8478;
-  --muted-light: #9aa3af;
-  --accent:      #c9622b;
-  --accent-bg:   #fbeae0;
-  --accent-bdr:  #e8b49a;
-  --accent-dark: #a84f22;
-  --nav-bg:      #1b2430;
-  --nav-text:    #f7f5f0;
-  --today-bg:    #fef9f0;
-  --today-bdr:   #c9622b;
-  --wknd-bg:     #fbfaf7;
-  --r-sm: 4px;
-  --r:    8px;
-  --r-lg: 12px;
-  --shadow:    0 1px 3px rgba(27,36,48,.08), 0 1px 2px rgba(27,36,48,.04);
-  --shadow-lg: 0 12px 32px rgba(27,36,48,.15);
+  --border:      #e2e8f0;
+  --section-bg:  #f1f5f9;
+  --muted-bg:    #f8fafc;
+  --text:        #0f172a;
+  --text-2:      #334155;
+  --muted:       #94a3b8;
+  --muted-light: #cbd5e1;
+  --accent:      #2563eb;
+  --accent-bg:   #eff6ff;
+  --accent-bdr:  #bfdbfe;
+  --accent-dark: #1d4ed8;
+  --nav-bg:      #0f172a;
+  --nav-text:    #f8fafc;
+  --today-bg:    #eff6ff;
+  --today-bdr:   #2563eb;
+  --wknd-bg:     #f8fafc;
+  --r-sm: 2px;
+  --r:    3px;
+  --r-lg: 4px;
+  --shadow:    0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.04);
+  --shadow-lg: 0 12px 32px rgba(15,23,42,.15);
   --brand-h:   46px;
   --toolbar-h: 62px;
 }
@@ -247,7 +247,7 @@ body {
 /* Barcode icon — SVG inline */
 .brand-icon { display: block; flex-shrink: 0; }
 .brand-name {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: var(--nav-text);
@@ -291,7 +291,7 @@ body {
   position: sticky;
   top: var(--brand-h);
   z-index: 59;
-  box-shadow: 0 1px 4px rgba(27,36,48,.06);
+  box-shadow: 0 1px 4px rgba(15,23,42,.06);
 }
 /* Toolbar inner — just spacing, width inherited from .page-container */
 .toolbar-inner {
@@ -309,7 +309,7 @@ body {
   max-width: 260px;
 }
 .toolbar-title {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
@@ -463,7 +463,7 @@ button:disabled { opacity: .4; cursor: not-allowed; pointer-events: none; }
   gap: 8px;
 }
 .week-head-title {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: var(--text);
@@ -494,11 +494,11 @@ thead th {
   background: var(--muted-bg);
   border-bottom: 1px solid var(--border);
 }
-tbody tr { border-bottom: 1px solid #f0ece4; transition: background .08s; }
+tbody tr { border-bottom: 1px solid #f1f5f9; transition: background .08s; }
 tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: #faf8f3; }
+tbody tr:hover { background: #f8fafc; }
 tbody tr.weekend { background: var(--wknd-bg); }
-tbody tr.weekend:hover { background: #f5f2ec; }
+tbody tr.weekend:hover { background: #f1f5f9; }
 tbody tr.today { background: var(--today-bg) !important; }
 tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding-left: 7px; }
 
@@ -523,15 +523,16 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   box-shadow: 0 0 0 3px rgba(201,98,43,.12);
 }
 .session-pair input.invalid { border-color: #ef4444; background: #fff5f5; }
-.session-pair input::placeholder { color: #c5bfb5; }
-.arrow   { color: #c5bfb5; font-size: 11px; user-select: none; }
+.session-pair input::placeholder { color: #cbd5e1; }
+.arrow   { color: #94a3b8; font-size: 11px; user-select: none; }
 .now-btn {
-  padding: 3px 6px; font-size: 11px; border-radius: var(--r-sm);
-  color: var(--muted); background: var(--section-bg); border-color: var(--border);
-  flex-shrink: 0; /* always reserve space for the now button */
+  padding: 3px 8px; font-size: 11px; font-weight: 600; border-radius: var(--r-sm);
+  color: var(--accent); background: var(--accent-bg); border-color: var(--accent-bdr);
+  flex-shrink: 0;
   white-space: nowrap;
+  letter-spacing: .2px;
 }
-.now-btn:hover { background: var(--accent-bg); border-color: var(--accent-bdr); color: var(--accent); }
+.now-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 .th-total { text-align: right; padding-right: 16px; border-left: 2px solid var(--border) !important; }
 .daily-total {
   font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums;
@@ -548,7 +549,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   border-radius: var(--r-lg);
   margin-top: 6px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(27,36,48,.2);
+  box-shadow: 0 4px 16px rgba(15,23,42,.2);
 }
 .ps-body { display: flex; align-items: stretch; }
 .ps-stat {
@@ -564,12 +565,12 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   letter-spacing: .6px; color: rgba(247,245,240,.42);
 }
 .ps-stat-value {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 30px; font-weight: 700;
   font-variant-numeric: tabular-nums; line-height: 1;
   color: var(--nav-text);
 }
-.ps-stat-value.ps-ot { color: #f5c4a4; }
+.ps-stat-value.ps-ot { color: #bfdbfe; }
 .ps-stat-unit { font-size: 11px; color: rgba(247,245,240,.38); margin-top: 2px; }
 .ps-footer {
   padding: 8px 24px;
@@ -589,7 +590,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 ══════════════════════════════════════════ */
 .overlay {
   position: fixed; inset: 0;
-  background: rgba(27,36,48,.45);
+  background: rgba(15,23,42,.45);
   z-index: 100; opacity: 0; pointer-events: none;
   transition: opacity .2s;
 }
@@ -612,7 +613,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   background: var(--section-bg); flex-shrink: 0;
 }
 .sp-head h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 16px; font-weight: 700; color: var(--text);
 }
 .sp-head .icon-btn { color: var(--muted); }
@@ -654,7 +655,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 .toggle input { opacity: 0; width: 0; height: 0; }
 .toggle-track {
   position: absolute; cursor: pointer; inset: 0;
-  background: #d1cdc4; border-radius: 23px; transition: background .2s;
+  background: #cbd5e1; border-radius: 23px; transition: background .2s;
 }
 .toggle-track::before {
   content: ''; position: absolute;
@@ -689,14 +690,14 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   box-shadow: var(--shadow);
 }
 .seo-section h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 10px;
 }
 .seo-section h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Space Grotesk", Inter, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--text);
@@ -947,7 +948,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   top: var(--brand-h);
   left: 0;
   right: 0;
-  background: #131c27;
+  background: #07111f;
   border-bottom: 1px solid rgba(255,255,255,.1);
   z-index: 200;
   flex-direction: column;
@@ -1056,9 +1057,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <rect x="13" y="0"  width="3" height="24" rx=".4" fill="#8aa4bc"/>
         <rect x="18" y="5"  width="2" height="16" rx=".4" fill="#7090a8"/>
         <rect x="22" y="3"  width="2" height="19" rx=".4" fill="#8aa4bc"/>
-        <rect x="26" y="1"  width="3" height="22" rx=".4" fill="#c9622b"/>
-        <rect x="31" y="4"  width="2" height="16" rx=".4" fill="#c9622b"/>
-        <rect x="35" y="0"  width="3" height="24" rx=".4" fill="#c9622b"/>
+        <rect x="26" y="1"  width="3" height="22" rx=".4" fill="#2563eb"/>
+        <rect x="31" y="4"  width="2" height="16" rx=".4" fill="#2563eb"/>
+        <rect x="35" y="0"  width="3" height="24" rx=".4" fill="#2563eb"/>
       </svg>
       <div style="display:flex;flex-direction:column;gap:2px">
         <h1 class="brand-name">Calculate My Hours</h1>
@@ -1585,7 +1586,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           const outEl = mkInput('out', di, i, outVal);
           const arr   = mkEl('span','arrow','→');
           const nowB  = document.createElement('button');
-          nowB.className='now-btn'; nowB.title='Use current time'; nowB.textContent='↻';
+          nowB.className='now-btn'; nowB.title='Stamp current time into this field'; nowB.textContent='⏱ Now';
           nowB.addEventListener('click', ()=>{
             const t = !inEl.value ? inEl : outEl;
             t.value=nowStr(); t.dispatchEvent(new Event('change'));
@@ -1752,25 +1753,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const dat=getPeriodData(currentOffset);
     const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=42;
 
-    doc.setFillColor(201,98,43); doc.rect(0,0,W,5,'F');
+    doc.setFillColor(37,99,235); doc.rect(0,0,W,5,'F');
     let y=M+8;
 
-    doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(27,36,48);
+    doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(15,23,42);
     doc.text('TIMESHEET',M,y);
-    if (cfg.company) { doc.setFontSize(11); doc.setTextColor(201,98,43); doc.text(cfg.company,W-M,y,{align:'right'}); }
+    if (cfg.company) { doc.setFontSize(11); doc.setTextColor(37,99,235); doc.text(cfg.company,W-M,y,{align:'right'}); }
 
     y+=6; doc.setDrawColor(228,224,214); doc.setLineWidth(0.5); doc.line(M,y,W-M,y); y+=14;
 
     const c1=M, c2=M+195, c3=M+455;
-    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(138,132,120);
+    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
     doc.text('EMPLOYEE',c1,y); doc.text('PAY PERIOD',c2,y); doc.text('DATE GENERATED',c3,y);
     y+=12;
-    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(27,36,48);
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(15,23,42);
     doc.text(cfg.name||'Employee',c1,y);
     doc.text(`${fmt(ps,{month:'short',day:'numeric',year:'numeric'})} – ${fmt(pe,{month:'short',day:'numeric',year:'numeric'})}`,c2,y);
     doc.text(new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),c3,y);
     if (cfg.empid || cfg.project) {
-      y+=11; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(138,132,120);
+      y+=11; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(148,163,184);
       if (cfg.empid) doc.text(`Employee ID: ${cfg.empid}`,c1,y);
       if (cfg.project) doc.text(`Project: ${cfg.project}`,c2,y);
     }
@@ -1784,7 +1785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     for (let w=0;w<2;w++) {
       const wStart=new Date(ps); wStart.setDate(wStart.getDate()+w*7);
       const wEnd=new Date(wStart); wEnd.setDate(wEnd.getDate()+6);
-      doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(201,98,43);
+      doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(37,99,235);
       doc.text(`WEEK ${w+1}  ·  ${fmt(wStart,{month:'short',day:'numeric'})} – ${fmt(wEnd,{month:'short',day:'numeric',year:'numeric'})}`,M,y);
       y+=5;
       const body=[],wknd=[];
@@ -1800,19 +1801,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const wOT=calcWeekOT(weekMins);
       totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot;
       const footRows=[[
-        {content:`Week ${w+1} Total`,colSpan:8,styles:{halign:'right',fontStyle:'bold',fillColor:[239,235,226],textColor:[27,36,48],fontSize:8}},
-        {content:toHrs(weekMins),styles:{halign:'center',fontStyle:'bold',fillColor:[239,235,226],textColor:[27,36,48],fontSize:9}}
+        {content:`Week ${w+1} Total`,colSpan:8,styles:{halign:'right',fontStyle:'bold',fillColor:[241,245,249],textColor:[15,23,42],fontSize:8}},
+        {content:toHrs(weekMins),styles:{halign:'center',fontStyle:'bold',fillColor:[241,245,249],textColor:[15,23,42],fontSize:9}}
       ]];
       if (cfg.overtimeEnabled&&wOT.ot>0) {
         footRows.push([{content:`Regular: ${toHrs(wOT.regular)} hrs  ·  Overtime: ${toHrs(wOT.ot)} hrs`,colSpan:9,
-          styles:{halign:'right',fontStyle:'italic',fillColor:[251,234,224],textColor:[168,79,34],fontSize:8}}]);
+          styles:{halign:'right',fontStyle:'italic',fillColor:[239,246,255],textColor:[29,78,216],fontSize:8}}]);
       }
       doc.autoTable({
         startY:y,margin:{left:M,right:M},tableWidth:W-M*2,
         head:[['Day','Date','Shift 1 In','Shift 1 Out','Shift 2 In','Shift 2 Out','Shift 3 In','Shift 3 Out','Hours']],
         body,foot:footRows,theme:'plain',
-        styles:{fontSize:8,cellPadding:{top:5,right:6,bottom:5,left:6},font:'helvetica',lineColor:[228,224,214],lineWidth:0.5,textColor:[27,36,48],overflow:'ellipsize',halign:'center'},
-        headStyles:{fillColor:[239,235,226],textColor:[138,132,120],fontStyle:'bold',fontSize:7,halign:'center'},
+        styles:{fontSize:8,cellPadding:{top:5,right:6,bottom:5,left:6},font:'helvetica',lineColor:[226,232,240],lineWidth:0.5,textColor:[15,23,42],overflow:'ellipsize',halign:'center'},
+        headStyles:{fillColor:[241,245,249],textColor:[148,163,184],fontStyle:'bold',fontSize:7,halign:'center'},
         columnStyles:{
           0:{cellWidth:CW[0],fontStyle:'bold',halign:'center'},
           1:{cellWidth:CW[1],textColor:[138,132,120],halign:'center'},
@@ -1820,35 +1821,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           4:{cellWidth:CW[4],halign:'center'},5:{cellWidth:CW[5],halign:'center'},
           6:{cellWidth:CW[6],halign:'center'},7:{cellWidth:CW[7],halign:'center'},
           8:{cellWidth:CW[8],halign:'center',fontStyle:'bold'}},
-        willDrawCell(cd) { if (cd.section==='body'&&wknd[cd.row.index]) doc.setFillColor(251,250,247); },
+        willDrawCell(cd) { if (cd.section==='body'&&wknd[cd.row.index]) doc.setFillColor(248,250,252); },
       });
       y=doc.lastAutoTable.finalY+12;
     }
 
     const barH=cfg.overtimeEnabled?42:30;
-    doc.setFillColor(27,36,48); doc.roundedRect(M,y,W-M*2,barH,3,3,'F');
+    doc.setFillColor(15,23,42); doc.roundedRect(M,y,W-M*2,barH,2,2,'F');
     if (cfg.overtimeEnabled) {
       const segW=(W-M*2)/3;
       const cx=[M+segW*.5,M+segW*1.5,M+segW*2.5];
       const labels=['TOTAL HOURS','REGULAR HOURS','OVERTIME HOURS'];
       const values=[toHrs(totalMins),toHrs(regularMins),toHrs(otMins)];
-      const colors=[[247,245,240],[247,245,240],[245,196,164]];
+      const colors=[[248,250,252],[248,250,252],[191,219,254]];
       for (let i=0;i<3;i++) {
-        doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(180,174,164);
+        doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
         doc.text(labels[i],cx[i],y+13,{align:'center'});
         doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(...colors[i]);
         doc.text(values[i],cx[i],y+29,{align:'center'});
-        if (i<2) { doc.setDrawColor(58,68,82); doc.setLineWidth(0.5); doc.line(M+segW*(i+1),y+8,M+segW*(i+1),y+barH-8); }
+        if (i<2) { doc.setDrawColor(51,65,85); doc.setLineWidth(0.5); doc.line(M+segW*(i+1),y+8,M+segW*(i+1),y+barH-8); }
       }
     } else {
-      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(180,174,164);
+      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(148,163,184);
       doc.text('PAY PERIOD TOTAL',M+14,y+barH/2+3.5);
-      doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(247,245,240);
+      doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(248,250,252);
       doc.text(`${toHrs(totalMins)} hours`,W-M-14,y+barH/2+4,{align:'right'});
     }
 
     // Timestamp — bottom center, no second page
-    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(154,163,175);
+    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
     doc.text(`Generated ${new Date().toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'})}`,W/2,H-18,{align:'center'});
 
     // Filename: Timesheet - Name - Jun5-Jun18 2026.pdf
