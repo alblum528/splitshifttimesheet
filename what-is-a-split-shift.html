@@ -75,9 +75,9 @@ body { font-family: Inter, "Segoe UI", system-ui, sans-serif; background: var(--
 .content-card h3 { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0 8px; }
 .content-card p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
 .content-card p:last-child { margin-bottom: 0; }
-.highlight-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
-.highlight-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
-.highlight-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+.highlight-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.highlight-list li { position: relative; padding-left: 18px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
+.highlight-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .ad-note { background: var(--accent-bg); border: 1px solid var(--accent-bdr); border-radius: var(--r); padding: 14px 18px; font-size: 13px; color: var(--accent-dark); line-height: 1.65; }
 .cta-note { background: var(--section-bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; font-size: 14px; color: var(--text-2); line-height: 1.7; }
 .cta-note a { color: var(--accent); text-decoration: none; font-weight: 600; }
