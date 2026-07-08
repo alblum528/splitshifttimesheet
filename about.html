@@ -371,6 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="index.html">Timesheet</a>
   <a href="about.html" class="active">About</a>
   <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
 </nav>
 
 <!-- Top ad — replace placeholder with AdSense <ins> tag when slot is ready -->
@@ -404,35 +405,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="page-wrap">
   <div class="page-header">
     <h1>About Calculate My Hours</h1>
-    <p>Providing free browser-based tools that make people's lives easier.</p>
+    <p>A free, private, browser-based split-shift timesheet — built for workers whose schedule doesn't fit one clock-in and one clock-out.</p>
   </div>
 
   <div class="content-card">
-    <h2>What We Do</h2>
+    <h2>Why We Built This</h2>
     <p>
-      Calculate My Hours is working to create tools for people that want easy ways to do repetitive tasks. We're focused on making easy to use webapps that can be used use over and over again.
-	  This free split-shift timesheet runs entirely in your browser. There's no account
-      to create, no app to install, and no data sent to any server. You enter your hours, the tool does the math,
-      and everything stays on your device.
+      Split shifts are one of the most poorly served scheduling patterns in payroll software. Most free timesheet
+      tools online assume a single clock-in and clock-out per day, which leaves out home health aides working a
+      morning and evening visit, restaurant staff pulling a lunch and dinner service, and gig workers stacking
+      short jobs across a day. We built Calculate My Hours specifically to handle that gap — a calculator that
+      treats multiple shifts per day as the normal case, not an edge case.
     </p>
     <p>
-      It's designed for workers who clock in and out more than once a day — up to three separate shifts per
-      day — and need an accurate, printable record of their time for payroll or tax purposes.
+      The tool runs entirely in your browser. There's no account to create, no app to install, and no data sent
+      to any server. You enter your clock-in and clock-out times, the tool totals your hours, and everything stays
+      on your device.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>How the Calculator Works</h2>
+    <p>
+      Each day supports up to three separate shifts. Enter a clock-in and clock-out time for each one, in
+      whatever format is fastest for you — <strong>9 AM</strong>, <strong>9:00</strong>, <strong>900</strong>,
+      or 24-hour time like <strong>17:30</strong> all work. The calculator converts each entry, sums the hours
+      worked per shift, and rolls those up into a daily total, a weekly subtotal, and a full pay-period summary.
+    </p>
+    <p>
+      If you flip on overtime tracking in Settings, you can choose whether overtime is calculated
+      <strong>per week</strong> (hours beyond a weekly threshold, commonly 40) or <strong>per day</strong> (hours
+      beyond a daily threshold, commonly 8) — useful if your job pays overtime for any single long day rather than
+      only after a long week. The calculator splits regular and overtime hours automatically based on whichever
+      mode you pick, and shows the breakdown on each week card as well as in a sub-total bar under every week and
+      the pay-period totals bar at the bottom.
+    </p>
+    <p>
+      Those totals bars also track <strong>Gap Time</strong> — the unpaid time between your shifts each day, like
+      the stretch between a lunch-shift clock-out and a dinner-shift clock-in. It's rolled up per week and for the
+      full pay period automatically, so you can see at a glance how much of your day is unpaid downtime. When your
+      pay period is complete, the Export PDF button turns the whole thing into a clean, printable document you can
+      hand to a payroll coordinator, attach to an invoice, or keep for your own tax records.
     </p>
   </div>
 
   <div class="content-card">
     <h2>Who It's Built For</h2>
-    <p>Split shifts are common across a wide range of jobs. Calculate My Hours is a good fit for:</p>
+    <p>Split shifts show up across a wide range of jobs. Calculate My Hours is a good fit for:</p>
     <ul class="highlight-list">
-      <li>Home health aides and personal care workers</li>
-      <li>Nurses, CNAs, and other healthcare staff</li>
-      <li>Restaurant, hospitality, and food service workers</li>
-      <li>Gig workers and independent contractors (Uber, DoorDash, Instacart, etc.)</li>
-      <li>Freelancers and hourly employees juggling multiple clients or shifts</li>
+      <li>Home health aides and personal care workers with morning and evening visits</li>
+      <li>Nurses, CNAs, and other healthcare staff working broken or rotating shifts</li>
+      <li>Restaurant, hospitality, and food service workers covering lunch and dinner service</li>
+      <li>Gig workers and independent contractors (Uber, DoorDash, Instacart, and similar platforms)</li>
+      <li>Freelancers and hourly employees juggling multiple clients or short-term jobs in a single day</li>
     </ul>
     <p>
-      If your schedule doesn't fit neatly into a single clock-in and clock-out, this tool was made for you.
+      If your schedule doesn't fit neatly into one clock-in and one clock-out, this tool was made for you. We
+      also maintain a small library of guides on split-shift scheduling — see
+      <a href="what-is-a-split-shift.html" style="color:var(--accent);text-decoration:none;font-weight:500;">What Is a Split Shift?</a>,
+      <a href="overtime-calculation-guide.html" style="color:var(--accent);text-decoration:none;font-weight:500;">our overtime calculation guide</a>,
+      and <a href="split-shift-timesheet-tips.html" style="color:var(--accent);text-decoration:none;font-weight:500;">tips for tracking split-shift hours accurately</a>.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>What This Tool Is Not</h2>
+    <p>
+      Calculate My Hours is a calculator, not a source of legal or payroll advice. Overtime rules, split-shift
+      premiums, meal-break requirements, and minimum-wage thresholds vary by employer, industry, and location,
+      and they change over time. We don't tell you what your employer owes you — we just help you add up the
+      hours you actually worked so you have an accurate record to work from. For anything involving pay disputes
+      or your legal rights as a worker, check with your employer's HR department, your state labor office, or a
+      qualified employment attorney.
     </p>
   </div>
 
@@ -441,7 +485,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>
       All timesheet data is saved in your browser's local storage. Nothing you enter is ever transmitted to
       a server, stored in a database, or shared with any third party. Clearing your browser's local storage
-      will erase your data — it exists only on your device.
+      will erase your data — it exists only on your device. Full details, including how advertising and
+      analytics scripts interact with your visit, are on our
+      <a href="privacy-policy.html" style="color:var(--accent);text-decoration:none;font-weight:500;">Privacy Policy</a> page.
     </p>
   </div>
 
@@ -453,6 +499,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       do not receive any personal information about you from ad impressions. If you find the ads intrusive,
       most modern browsers support ad-free browsing via extensions.
     </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Who's Behind This</h2>
+    <p>
+      Calculate My Hours is an independent, one-person project. It started as a personal tool for tracking
+      split shifts and grew into something worth sharing once it became clear how few free options existed for
+      workers with irregular schedules. There's no company, no investors, and no data-selling business model —
+      just a small utility kept running by ad revenue and maintained in spare time.
+    </p>
   </div>
 
   <div class="content-card">
@@ -501,6 +557,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html">Timesheet</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="what-is-a-split-shift.html">What Is a Split Shift?</a>
+      <a href="overtime-calculation-guide.html">Overtime Guide</a>
+      <a href="split-shift-timesheet-tips.html">Timesheet Tips</a>
     </nav>
   </div>
 </footer>

@@ -85,50 +85,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this timesheet really free?",
+      "name": "What counts as a split shift?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Calculate My Hours is completely free to use with no sign-up, no subscription, and no hidden charges."
+        "text": "A split shift is a workday broken into two or more separate periods with an unpaid gap in between — for example, working 8 AM–12 PM, then again 4 PM–9 PM. This tool lets you log up to three such shifts per day."
       }
     },
     {
       "@type": "Question",
-      "name": "Where is my timesheet data stored?",
+      "name": "How many shifts can I track in a single day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All data is saved in your browser's local storage. Nothing is sent to any server. Your hours remain completely private on your own device."
+        "text": "Up to three separate clock-in/clock-out pairs per day. Each shift's hours are totaled individually and then rolled into a daily total."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I export my timesheet to PDF?",
+      "name": "Is my timesheet data stored anywhere, or is it private?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Click Export PDF to download a professionally formatted landscape PDF showing your daily entries, weekly totals, overtime breakdown, and pay period summary — ready to submit to a payroll coordinator or save for tax records."
+        "text": "Everything you enter is saved only in your browser's local storage. Nothing is transmitted to a server or database — your data stays on your device."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this timesheet calculate overtime?",
+      "name": "Do I need to create an account or sign up?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Open Settings and enable overtime calculation, then set your weekly threshold (default 40 hours). Each week card shows an overtime badge, and the pay period summary splits total hours into regular and overtime."
+        "text": "No. There's no login, no account, and no email required. Open the page and start entering hours."
       }
     },
     {
       "@type": "Question",
-      "name": "How many shifts per day can I track?",
+      "name": "Can I export my timesheet for payroll or my own records?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Up to 3 clock-in / clock-out shifts per day, so you can track a morning shift, a midday break, and an evening block all in the same row — ideal for split-shift workers in healthcare, restaurants, gig platforms, and home health."
+        "text": "Yes. Once your pay period is filled in, use the Export PDF button to download a formatted, printable timesheet you can email to a payroll coordinator or keep for your own records."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this timesheet good for gig workers and healthcare workers?",
+      "name": "What time formats can I type into the calculator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Calculate My Hours is designed for anyone who works split shifts or irregular hours — including gig workers, Uber and DoorDash drivers, home health aides, CNAs, nurses, restaurant and hospitality staff, and independent contractors. Track each shift separately and let the app total your hours automatically."
+        "text": "Most common formats work: 9 AM, 9:00, 900, or 24-hour time like 17:30. You can also tap the refresh button to stamp the current time automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does overtime tracking work in this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turn it on in Settings and set your own weekly hour threshold. The calculator then splits each week's total into regular and overtime hours automatically and shows an overtime badge on any week that crosses the threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is \"Gap Time\" in the totals bar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gap Time is the total unpaid time between your shifts on a given day. The calculator adds up these gaps automatically and shows them in the weekly sub-total bar and the pay-period totals bar alongside your worked hours. It's a tracking convenience, not a statement of what you're owed for that time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit or delete a shift after I've entered it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, every field remains editable at any time — click into any time entry to change or clear it, and totals recalculate instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this work on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The calculator is fully responsive and works in any modern mobile browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool actually free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, fully free with no paid tier or feature limits. The site is supported by advertising rather than subscriptions or paywalls."
       }
     }
   ]
@@ -577,6 +617,7 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   color: var(--nav-text);
 }
 .ps-stat-value.ps-ot { color: #bfdbfe; }
+.ps-stat-value.ps-gap { color: #cbd5e1; }
 .ps-stat-unit { font-size: 11px; color: rgba(247,245,240,.38); margin-top: 2px; }
 .ps-footer {
   padding: 8px 24px;
@@ -585,6 +626,36 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   color: rgba(247,245,240,.42);
   border-top: 1px solid rgba(255,255,255,.06);
 }
+
+/* ══════════════════════════════════════════
+   WEEK SUB-TOTAL BAR (inside each week-card)
+══════════════════════════════════════════ */
+.week-subtotal {
+  display: flex;
+  align-items: stretch;
+  background: var(--section-bg);
+  border-top: 1px solid var(--border);
+}
+.wst-stat {
+  flex: 1;
+  padding: 9px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.wst-stat + .wst-stat { border-left: 1px solid var(--border); }
+.wst-label {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; color: var(--muted);
+}
+.wst-value {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 16px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.wst-value.wst-ot  { color: var(--accent-dark); }
+.wst-value.wst-gap { color: var(--muted); }
 
 /* ══════════════════════════════════════════
    HELP TEXT
@@ -678,6 +749,15 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
 }
 .ot-sub.hidden { display: none; }
 
+.seg-control { display: flex; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+.seg-btn {
+  flex: 1; padding: 8px 10px; font-size: 12px; font-weight: 600;
+  background: var(--surface); color: var(--muted); border: none; cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.seg-btn + .seg-btn { border-left: 1px solid var(--border); }
+.seg-btn.active { background: var(--accent); color: #fff; }
+
 .sp-footer {
   padding: 14px 20px; border-top: 1px solid var(--border);
   display: flex; gap: 8px; flex-shrink: 0;
@@ -713,6 +793,109 @@ tbody tr.today td:first-child { border-left: 3px solid var(--today-bdr); padding
   font-size: 13px;
   color: var(--text-2);
   line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   GUIDES / RELATED CONTENT
+══════════════════════════════════════════ */
+.guides-section {
+  margin-top: 20px;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  scroll-margin-top: calc(var(--brand-h) + var(--toolbar-h) + 12px);
+}
+.guides-section h2 {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  .guides-grid { grid-template-columns: 1fr; }
+}
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--section-bg);
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.guide-card:hover { border-color: var(--accent-bdr); background: var(--accent-bg); }
+.guide-card-label {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: var(--accent);
+}
+.guide-card-title {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--text);
+}
+.guide-card-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+
+/* ══════════════════════════════════════════
+   FAQ SECTION
+══════════════════════════════════════════ */
+.faq-section {
+  margin-top: 20px;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  scroll-margin-top: calc(var(--brand-h) + var(--toolbar-h) + 12px);
+}
+.faq-section h2 {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.faq-intro {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.faq-item { border-bottom: 1px solid var(--border); padding: 13px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '\2212'; }
+.faq-item p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin-top: 9px;
 }
 
 /* ══════════════════════════════════════════
@@ -786,6 +969,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   .period-nav-label { min-width: 140px; font-size: 12px; }
   .toolbar-actions { flex: 0 0 auto; }
   #today-btn, #clear-btn { display: none; }
+  #settings-btn { flex: 0 0 auto; order: -1; }
 
   /* Settings panel: full-width on mobile */
   .settings-panel { width: 100%; }
@@ -879,6 +1063,16 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   }
   .ps-stat { padding: 14px 20px; }
   .ps-stat-value { font-size: 24px; }
+
+  /* Week sub-total bar: stack on narrow screens */
+  .week-subtotal { flex-wrap: wrap; }
+  .wst-stat {
+    flex: 1 1 50%;
+    min-width: 120px;
+    padding: 8px 14px;
+  }
+  .wst-stat + .wst-stat { border-left: 1px solid var(--border); }
+  .wst-stat:nth-child(2n+1) { border-left: none; }
 }
 
 /* ══════════════════════════════════════════
@@ -990,6 +1184,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   .toolbar-inner { flex-wrap: wrap; padding: 5px 8px; gap: 4px; row-gap: 4px; }
   .toolbar-identity { display: none; }  /* brand bar already shows app name */
   .toolbar-sep { display: none; }
+  #settings-btn { width: 100%; order: 0; font-size: 11px; padding: 5px 8px; }
   .period-nav { width: 100%; justify-content: center; order: 1; }
   .toolbar-actions { width: 100%; justify-content: center; order: 2; display: flex; flex-wrap: wrap; gap: 4px; }
   .toolbar-actions button { font-size: 11px; padding: 5px 8px; }
@@ -1035,7 +1230,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   @page { size: letter landscape; margin: .45in; }
   body { background: #fff; }
   .brand-bar, .toolbar, .ad-strip, .ad-sidebar,
-  .help-text, .settings-panel, .overlay, .banner, .seo-section { display: none !important; }
+  .help-text, .settings-panel, .overlay, .banner, .seo-section, .guides-section, .faq-section { display: none !important; }
   .page-wrap { padding: 0; max-width: none; display: block; }
   .week-card { box-shadow: none; border-radius: 0; border: 1px solid #ccc; margin-bottom: 12px; page-break-inside: avoid; }
   .now-btn { display: none !important; }
@@ -1073,6 +1268,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <nav class="brand-nav" aria-label="Site navigation">
+      <a href="#guides">Learn More</a>
+      <a href="#faq">FAQ</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -1086,9 +1283,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">Timesheet</a>
+  <a href="index.html" class="active">Timesheet</a>
+  <a href="#guides">Learn More</a>
+  <a href="#faq">FAQ</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
 </nav>
 
 <!-- ══════════════════════════════════════
@@ -1121,6 +1321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="toolbar-employee" id="header-employee">Name: —</div>
     </div>
     <div class="toolbar-sep"></div>
+    <button class="dark" id="settings-btn">Settings</button>
     <div class="period-nav">
       <button id="prev-btn" title="Previous period">&#8592;</button>
       <div class="period-nav-label" id="period-nav-label">—</div>
@@ -1129,7 +1330,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="toolbar-actions">
       <button id="today-btn">Today</button>
       <button id="clear-btn">Clear</button>
-      <button class="dark" id="settings-btn">Settings</button>
       <button class="primary" id="pdf-btn">Export PDF</button>
       <button id="email-btn" title="Email timesheet to payroll coordinator">Email PDF</button>
     </div>
@@ -1190,9 +1390,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="ot-sub hidden" id="ot-sub">
         <div class="form-group">
-          <label>Overtime after (hrs/week)</label>
+          <label>Calculate overtime by</label>
+          <div class="seg-control" id="ot-mode-seg">
+            <button type="button" class="seg-btn active" data-mode="week">Per Week</button>
+            <button type="button" class="seg-btn" data-mode="day">Per Day</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label id="ot-hrs-label">Overtime after (hrs/week)</label>
           <input id="set-ot-hrs" type="number" min="1" max="168" step=".5" value="40">
-          <p class="form-hint">Hours per week beyond this threshold count as overtime.</p>
+          <p class="form-hint" id="ot-hrs-hint">Hours per week beyond this threshold count as overtime.</p>
         </div>
       </div>
     </div>
@@ -1289,11 +1496,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
       <h3>Overtime tracking for shift workers</h3>
       <p>
-        Open <strong>Settings</strong> to enable overtime calculation. Set your weekly threshold (typically 40 hours
-        in the US) and the timesheet will automatically split each week into regular and overtime hours —
-        showing an OT badge on each week card and a full breakdown in the pay period summary bar. Especially
-        useful for home health aides, healthcare workers, and gig workers billing multiple clients.
+        Open <strong>Settings</strong> to enable overtime calculation, then choose whether overtime is calculated
+        <strong>per week</strong> (hours beyond a weekly threshold, commonly 40) or <strong>per day</strong> (hours
+        beyond a daily threshold, commonly 8). The timesheet automatically splits regular and overtime hours based
+        on your chosen mode — showing an OT badge on each week card and a full breakdown in the weekly sub-total
+        bar and the pay period summary bar. Especially useful for home health aides, healthcare workers, and gig
+        workers billing multiple clients.
       </p>
+      <h3>Gap time between shifts</h3>
+      <p>
+        Because split shifts leave unpaid time between clock-out and the next clock-in, the calculator also totals
+        that <strong>Gap Time</strong> automatically — per week in the sub-total bar under each week card, and for
+        the full pay period in the bottom totals bar. It's a convenient way to see exactly how much of your day is
+        unpaid downtime, though it's a tracking figure only, not a calculation of split-shift premium pay.
+      </p>
+    </section>
+
+    <!-- Guides / related content -->
+    <section class="guides-section" id="guides" aria-label="Related guides">
+      <h2>Learn More About Split Shifts</h2>
+      <div class="guides-grid">
+        <a class="guide-card" href="what-is-a-split-shift.html">
+          <span class="guide-card-label">Guide</span>
+          <span class="guide-card-title">What Is a Split Shift?</span>
+          <span class="guide-card-desc">Definition, real-world examples, and how it's different from a double shift or on-call time.</span>
+        </a>
+        <a class="guide-card" href="overtime-calculation-guide.html">
+          <span class="guide-card-label">Guide</span>
+          <span class="guide-card-title">How to Calculate Overtime</span>
+          <span class="guide-card-desc">The general math behind per-week and per-day overtime, with worked examples.</span>
+        </a>
+        <a class="guide-card" href="split-shift-timesheet-tips.html">
+          <span class="guide-card-label">Guide</span>
+          <span class="guide-card-title">8 Timesheet Tracking Tips</span>
+          <span class="guide-card-desc">Practical habits that prevent the small errors that cause big payroll headaches.</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ section -->
+    <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+      <h2>Frequently Asked Questions</h2>
+      <p class="faq-intro">Common questions about the calculator, your data, and how split-shift tracking works here.</p>
+
+      <details class="faq-item">
+        <summary>What counts as a split shift?</summary>
+        <p>A split shift is a workday broken into two or more separate periods with an unpaid gap in between — for example, working 8 AM–12 PM, then again 4 PM–9 PM. This tool lets you log up to three such shifts per day.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many shifts can I track in a single day?</summary>
+        <p>Up to three separate clock-in/clock-out pairs per day. Each shift's hours are totaled individually and then rolled into a daily total.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is my timesheet data stored anywhere, or is it private?</summary>
+        <p>Everything you enter is saved only in your browser's local storage. Nothing is transmitted to a server or database — your data stays on your device. See our <a href="privacy-policy.html">Privacy Policy</a> for full details.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need to create an account or sign up?</summary>
+        <p>No. There's no login, no account, and no email required. Open the page and start entering hours.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I export my timesheet for payroll or my own records?</summary>
+        <p>Yes. Once your pay period is filled in, use the Export PDF button to download a formatted, printable timesheet you can email to a payroll coordinator or keep for your own records.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What time formats can I type into the calculator?</summary>
+        <p>Most common formats work: "9 AM", "9:00", "900", or 24-hour time like "17:30". You can also tap the ↻ button to stamp the current time automatically.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does overtime tracking work in this tool?</summary>
+        <p>Turn it on in Settings and set your own weekly hour threshold. The calculator then splits each week's total into regular and overtime hours automatically and shows an OT badge on any week that crosses the threshold. It's a calculation aid, not a statement of what you're legally owed — see our <a href="overtime-calculation-guide.html">overtime calculation guide</a> for how the math works.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is "Gap Time" in the totals bar?</summary>
+        <p>Gap Time is the total unpaid time between your shifts on a given day — for example, the 4 hours between a lunch-shift clock-out and a dinner-shift clock-in. The calculator adds up these gaps automatically and shows them in the weekly sub-total bar under each week and in the pay-period totals bar at the bottom, alongside your worked hours. It's a tracking convenience, not a statement of what you're owed for that time — some jobs or agreements pay a "split-shift premium" for long gaps, but that depends entirely on your employer and location, so check with HR if it's relevant to you.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I edit or delete a shift after I've entered it?</summary>
+        <p>Yes, every field remains editable at any time — click into any time entry to change or clear it, and totals recalculate instantly.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does this work on my phone?</summary>
+        <p>Yes. The calculator is fully responsive and works in any modern mobile browser — handy for logging a shift the moment you clock in.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this tool actually free?</summary>
+        <p>Yes, fully free with no paid tier or feature limits. The site is supported by advertising rather than subscriptions or paywalls.</p>
+      </details>
     </section>
   </main>
 
@@ -1352,6 +1651,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html">Timesheet</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="what-is-a-split-shift.html">What Is a Split Shift?</a>
+      <a href="overtime-calculation-guide.html">Overtime Guide</a>
+      <a href="split-shift-timesheet-tips.html">Timesheet Tips</a>
     </nav>
   </div>
 </footer>
@@ -1458,6 +1761,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (a===null||b===null) return 0;
     let d=b-a; if(d<0) d+=1440; return d;
   }
+  // Total unpaid gap time between shifts in a single day. Builds a list of
+  // valid, filled shifts (start/end in minutes), sorts them chronologically,
+  // then sums the positive gaps between the end of one shift and the start
+  // of the next — so it works regardless of which shift slot was filled first.
+  function gapMinsForDay(data, di) {
+    const sessions = [];
+    for (let i=0;i<SESSIONS;i++) {
+      const inV=data[`d${di}s${i}in`]||'', outV=data[`d${di}s${i}out`]||'';
+      const a=parseTime(inV), b=parseTime(outV);
+      if (a===null||b===null) continue;
+      let dur=b-a; if(dur<0) dur+=1440;
+      sessions.push({ start:a, end:a+dur });
+    }
+    if (sessions.length<2) return 0;
+    sessions.sort((x,y)=>x.start-y.start);
+    let gap=0;
+    for (let i=1;i<sessions.length;i++) {
+      const prevEnd=sessions[i-1].end, curStart=sessions[i].start;
+      if (curStart>prevEnd) gap += curStart-prevEnd;
+    }
+    return gap;
+  }
   function nowStr() {
     const n=new Date();
     return formatTime(n.getHours()*60+n.getMinutes());
@@ -1465,19 +1790,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function toHrs(mins) { return (mins/60).toFixed(2); }
 
   // ── Overtime ──────────────────────────────────────────────────────
-  function calcWeekOT(weekMins) {
+  // dayMinsArr (optional): minutes worked per day in the week, needed for
+  // "per day" overtime mode. Falls back to week-mode math if omitted.
+  function calcWeekOT(weekMins, dayMinsArr) {
     const cfg = getSettings();
     if (!cfg.overtimeEnabled) return { regular: weekMins, ot: 0 };
-    const threshold = (cfg.otHours || 40) * 60;
+    if (cfg.otMode === 'day' && dayMinsArr) {
+      const threshold = (cfg.otHoursDay || 8) * 60;
+      let ot = 0;
+      dayMinsArr.forEach(m => { ot += Math.max(0, m - threshold); });
+      return { regular: weekMins - ot, ot };
+    }
+    const threshold = (cfg.otHoursWeek || cfg.otHours || 40) * 60;
     const ot = Math.max(0, weekMins - threshold);
     return { regular: weekMins - ot, ot };
   }
 
   // ── Period summary ────────────────────────────────────────────────
-  function renderPeriodSummary(totalMins, regularMins, otMins, ps, pe) {
+  function renderPeriodSummary(totalMins, regularMins, otMins, gapMins, ps, pe) {
     const cfg = getSettings();
     document.getElementById('ps-footer').textContent = `${fmtLong(ps)} – ${fmtLong(pe)}`;
     const psBody = document.getElementById('ps-body');
+    const otUnit = cfg.otMode === 'day'
+      ? `over ${cfg.otHoursDay||8} hrs/day`
+      : `over ${cfg.otHoursWeek||cfg.otHours||40} hrs/week`;
     if (cfg.overtimeEnabled) {
       psBody.innerHTML = `
         <div class="ps-stat">
@@ -1493,7 +1829,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ps-stat">
           <div class="ps-stat-label">Overtime Hours</div>
           <div class="ps-stat-value ps-ot">${toHrs(otMins)}</div>
-          <div class="ps-stat-unit">over ${cfg.otHours||40} hrs/week</div>
+          <div class="ps-stat-unit">${otUnit}</div>
+        </div>
+        <div class="ps-stat">
+          <div class="ps-stat-label">Gap Time</div>
+          <div class="ps-stat-value ps-gap">${toHrs(gapMins)}</div>
+          <div class="ps-stat-unit">unpaid time between shifts</div>
         </div>`;
     } else {
       psBody.innerHTML = `
@@ -1501,24 +1842,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ps-stat-label">Pay Period Total</div>
           <div class="ps-stat-value">${toHrs(totalMins)}</div>
           <div class="ps-stat-unit">hours over 2 weeks</div>
+        </div>
+        <div class="ps-stat">
+          <div class="ps-stat-label">Gap Time</div>
+          <div class="ps-stat-value ps-gap">${toHrs(gapMins)}</div>
+          <div class="ps-stat-unit">unpaid time between shifts</div>
         </div>`;
     }
   }
 
   // ── Week badges ───────────────────────────────────────────────────
-  function updateWeekBadges(w, weekMins) {
-    const cfg = getSettings();
+  function updateWeekBadges(w, weekMins, ot) {
     const bTotal = document.getElementById(`wk-total-${w}`);
     const bOT    = document.getElementById(`wk-ot-${w}`);
     if (!bTotal||!bOT) return;
     bTotal.textContent = `${toHrs(weekMins)} hrs`;
+    if (ot>0) { bOT.textContent=`${toHrs(ot)} OT`; bOT.style.display='inline-block'; }
+    else { bOT.style.display='none'; }
+  }
+
+  // ── Week sub-total bar ───────────────────────────────────────────────
+  function updateWeekSubtotal(w, weekMins, wOT, gapMins, cfg) {
+    const el = document.getElementById(`wk-sub-${w}`);
+    if (!el) return;
+    let html = `
+      <div class="wst-stat">
+        <div class="wst-label">Week Total</div>
+        <div class="wst-value">${toHrs(weekMins)}</div>
+      </div>`;
     if (cfg.overtimeEnabled) {
-      const { ot } = calcWeekOT(weekMins);
-      if (ot>0) { bOT.textContent=`${toHrs(ot)} OT`; bOT.style.display='inline-block'; }
-      else { bOT.style.display='none'; }
-    } else {
-      bOT.style.display='none';
+      html += `
+      <div class="wst-stat">
+        <div class="wst-label">Regular</div>
+        <div class="wst-value">${toHrs(wOT.regular)}</div>
+      </div>
+      <div class="wst-stat">
+        <div class="wst-label">Overtime</div>
+        <div class="wst-value wst-ot">${toHrs(wOT.ot)}</div>
+      </div>`;
     }
+    html += `
+      <div class="wst-stat">
+        <div class="wst-label">Gap Time</div>
+        <div class="wst-value wst-gap">${toHrs(gapMins)}</div>
+      </div>`;
+    el.innerHTML = html;
   }
 
   // ── Main render ───────────────────────────────────────────────────
@@ -1540,7 +1908,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const weekEls = [document.getElementById('week-0'), document.getElementById('week-1')];
     weekEls.forEach(el => el.innerHTML = '');
-    let totalMins=0, regularMins=0, otMins=0;
+    let totalMins=0, regularMins=0, otMins=0, totalGapMins=0;
 
     for (let w=0; w<2; w++) {
       const wStart = new Date(ps); wStart.setDate(wStart.getDate() + w*7);
@@ -1565,7 +1933,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       table.appendChild(thead);
 
       const tbody = document.createElement('tbody');
-      let weekMins = 0;
+      let weekMins = 0, weekGapMins = 0;
+      const dayMinsArr = [];
 
       for (let d=0;d<7;d++) {
         const di   = w*7+d;
@@ -1610,18 +1979,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         row.appendChild(totTd);
         tbody.appendChild(row);
         weekMins+=dayMins;
+        weekGapMins+=gapMinsForDay(data, di);
+        dayMinsArr.push(dayMins);
       }
 
       table.appendChild(tbody);
       card.appendChild(table);
+
+      const subBar = mkDiv('week-subtotal'); subBar.id = `wk-sub-${w}`;
+      card.appendChild(subBar);
+
       weekEls[w].appendChild(card);
 
-      updateWeekBadges(w, weekMins);
-      const wOT = calcWeekOT(weekMins);
-      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot;
+      const wOT = calcWeekOT(weekMins, dayMinsArr);
+      updateWeekBadges(w, weekMins, wOT.ot);
+      updateWeekSubtotal(w, weekMins, wOT, weekGapMins, cfg);
+      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot; totalGapMins+=weekGapMins;
     }
 
-    renderPeriodSummary(totalMins, regularMins, otMins, ps, pe);
+    renderPeriodSummary(totalMins, regularMins, otMins, totalGapMins, ps, pe);
   }
 
   // ── DOM helpers ───────────────────────────────────────────────────
@@ -1664,15 +2040,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     for (let i=0;i<SESSIONS;i++) dayMins+=sessMins(data[`d${di}s${i}in`]||'',data[`d${di}s${i}out`]||'');
     const cell=document.getElementById(`day-total-${di}`);
     if (cell) { cell.textContent=dayMins>0?toHrs(dayMins):'—'; cell.className='daily-total'+(dayMins>0?' has-hours':''); }
+    const cfg=getSettings();
     const ps=getPeriodStart(currentOffset), pe=new Date(ps); pe.setDate(pe.getDate()+PERIOD_DAYS-1);
-    let totalMins=0,regularMins=0,otMins=0;
+    let totalMins=0,regularMins=0,otMins=0,totalGapMins=0;
     for (let w=0;w<2;w++) {
-      let wk=0;
-      for (let d=0;d<7;d++) { const idx=w*7+d; for (let i=0;i<SESSIONS;i++) wk+=sessMins(data[`d${idx}s${i}in`]||'',data[`d${idx}s${i}out`]||''); }
-      updateWeekBadges(w,wk);
-      const wOT=calcWeekOT(wk); totalMins+=wk; regularMins+=wOT.regular; otMins+=wOT.ot;
+      let wk=0, wkGap=0;
+      const dayMinsArr=[];
+      for (let d=0;d<7;d++) {
+        const idx=w*7+d;
+        let dm=0;
+        for (let i=0;i<SESSIONS;i++) dm+=sessMins(data[`d${idx}s${i}in`]||'',data[`d${idx}s${i}out`]||'');
+        dayMinsArr.push(dm);
+        wk+=dm;
+        wkGap+=gapMinsForDay(data, idx);
+      }
+      const wOT=calcWeekOT(wk, dayMinsArr);
+      updateWeekBadges(w,wk,wOT.ot);
+      updateWeekSubtotal(w,wk,wOT,wkGap,cfg);
+      totalMins+=wk; regularMins+=wOT.regular; otMins+=wOT.ot; totalGapMins+=wkGap;
     }
-    renderPeriodSummary(totalMins,regularMins,otMins,ps,pe);
+    renderPeriodSummary(totalMins,regularMins,otMins,totalGapMins,ps,pe);
   }
 
   // ── Navigation ────────────────────────────────────────────────────
@@ -1684,6 +2071,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   // ── Settings ──────────────────────────────────────────────────────
+  let otFormMode = 'week';
+  const otFormVals = { week: 40, day: 8 };
+
+  function paintOtMode() {
+    document.querySelectorAll('#ot-mode-seg .seg-btn').forEach(b=>{
+      b.classList.toggle('active', b.dataset.mode===otFormMode);
+    });
+    document.getElementById('ot-hrs-label').textContent =
+      otFormMode==='day' ? 'Overtime after (hrs/day)' : 'Overtime after (hrs/week)';
+    document.getElementById('ot-hrs-hint').textContent =
+      otFormMode==='day'
+        ? 'Hours per day beyond this threshold count as overtime.'
+        : 'Hours per week beyond this threshold count as overtime.';
+    document.getElementById('set-ot-hrs').value = otFormVals[otFormMode];
+  }
+
+  document.querySelectorAll('#ot-mode-seg .seg-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      otFormVals[otFormMode] = parseFloat(document.getElementById('set-ot-hrs').value) || otFormVals[otFormMode];
+      otFormMode = btn.dataset.mode;
+      paintOtMode();
+    });
+  });
+
   function openSettings() {
     const cfg=getSettings();
     document.getElementById('set-name').value    = cfg.name    || '';
@@ -1693,8 +2104,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('set-payroll-email').value = cfg.payrollEmail || '';
     document.getElementById('set-anchor').value  = cfg.anchor  || DEFAULT_ANCHOR;
     document.getElementById('set-ot-on').checked = !!cfg.overtimeEnabled;
-    document.getElementById('set-ot-hrs').value  = cfg.otHours || 40;
     document.getElementById('ot-sub').classList.toggle('hidden',!cfg.overtimeEnabled);
+    otFormMode    = cfg.otMode === 'day' ? 'day' : 'week';
+    otFormVals.week = cfg.otHoursWeek || cfg.otHours || 40;
+    otFormVals.day  = cfg.otHoursDay  || 8;
+    paintOtMode();
     document.getElementById('settings-panel').classList.add('open');
     document.getElementById('overlay').classList.add('open');
     document.getElementById('set-name').focus();
@@ -1712,6 +2126,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('ot-sub').classList.toggle('hidden',!e.target.checked);
   });
   document.getElementById('sp-save').addEventListener('click',()=>{
+    otFormVals[otFormMode] = parseFloat(document.getElementById('set-ot-hrs').value) || otFormVals[otFormMode];
     saveSettings({
       name:            document.getElementById('set-name').value.trim(),
       company:         document.getElementById('set-company').value.trim(),
@@ -1720,7 +2135,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       payrollEmail:    document.getElementById('set-payroll-email').value.trim(),
       anchor:          document.getElementById('set-anchor').value || DEFAULT_ANCHOR,
       overtimeEnabled: document.getElementById('set-ot-on').checked,
-      otHours:         parseFloat(document.getElementById('set-ot-hrs').value)||40,
+      otMode:          otFormMode,
+      otHoursWeek:     otFormVals.week,
+      otHoursDay:      otFormVals.day,
+      otHours:         otFormVals.week, // legacy key, kept in sync for backward compatibility
     });
     closeSettings();
     currentOffset=offsetForDate(new Date());
@@ -1783,7 +2201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     y+=18;
 
-    let totalMins=0,regularMins=0,otMins=0;
+    let totalMins=0,regularMins=0,otMins=0,totalGapMins=0;
     // Column widths must sum to W-M*2 (708pt for landscape letter) to match the summary bar
     // Day:36 + Date:48 + In1:94 + Out1:94 + In2:94 + Out2:94 + In3:94 + Out3:94 + Hrs:60 = 708
     const CW={0:36,1:48,2:94,3:94,4:94,5:94,6:94,7:94,8:60};
@@ -1795,7 +2213,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       doc.text(`WEEK ${w+1}  ·  ${fmt(wStart,{month:'short',day:'numeric'})} – ${fmt(wEnd,{month:'short',day:'numeric',year:'numeric'})}`,M,y);
       y+=5;
       const body=[],wknd=[];
-      let weekMins=0;
+      let weekMins=0, weekGapMins=0;
+      const dayMinsArr=[];
       for (let d=0;d<7;d++) {
         const di=w*7+d, dd=new Date(ps); dd.setDate(dd.getDate()+di);
         const row=[DAY_NAMES[d],`${dd.getMonth()+1}/${dd.getDate()}`];
@@ -1803,15 +2222,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         for (let i=0;i<SESSIONS;i++) { const iv=dat[`d${di}s${i}in`]||'',ov=dat[`d${di}s${i}out`]||''; row.push(iv,ov); dayMins+=sessMins(iv,ov); }
         row.push(dayMins>0?toHrs(dayMins):'');
         body.push(row); wknd.push(dd.getDay()===0||dd.getDay()===6); weekMins+=dayMins;
+        weekGapMins+=gapMinsForDay(dat, di);
+        dayMinsArr.push(dayMins);
       }
-      const wOT=calcWeekOT(weekMins);
-      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot;
+      const wOT=calcWeekOT(weekMins, dayMinsArr);
+      totalMins+=weekMins; regularMins+=wOT.regular; otMins+=wOT.ot; totalGapMins+=weekGapMins;
       const footRows=[[
         {content:`Week ${w+1} Total`,colSpan:8,styles:{halign:'right',fontStyle:'bold',fillColor:[241,245,249],textColor:[15,23,42],fontSize:8}},
         {content:toHrs(weekMins),styles:{halign:'center',fontStyle:'bold',fillColor:[241,245,249],textColor:[15,23,42],fontSize:9}}
       ]];
-      if (cfg.overtimeEnabled&&wOT.ot>0) {
-        footRows.push([{content:`Regular: ${toHrs(wOT.regular)} hrs  ·  Overtime: ${toHrs(wOT.ot)} hrs`,colSpan:9,
+      const extraBits=[];
+      if (cfg.overtimeEnabled&&wOT.ot>0) extraBits.push(`Regular: ${toHrs(wOT.regular)} hrs  ·  Overtime: ${toHrs(wOT.ot)} hrs`);
+      if (weekGapMins>0) extraBits.push(`Gap: ${toHrs(weekGapMins)} hrs`);
+      if (extraBits.length) {
+        footRows.push([{content:extraBits.join('    ·    '),colSpan:9,
           styles:{halign:'right',fontStyle:'italic',fillColor:[239,246,255],textColor:[29,78,216],fontSize:8}}]);
       }
       doc.autoTable({
@@ -1832,27 +2256,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       y=doc.lastAutoTable.finalY+12;
     }
 
-    const barH=cfg.overtimeEnabled?42:30;
-    doc.setFillColor(15,23,42); doc.roundedRect(M,y,W-M*2,barH,2,2,'F');
+    const stats=[{label:'TOTAL HOURS',value:toHrs(totalMins),color:[248,250,252]}];
     if (cfg.overtimeEnabled) {
-      const segW=(W-M*2)/3;
-      const cx=[M+segW*.5,M+segW*1.5,M+segW*2.5];
-      const labels=['TOTAL HOURS','REGULAR HOURS','OVERTIME HOURS'];
-      const values=[toHrs(totalMins),toHrs(regularMins),toHrs(otMins)];
-      const colors=[[248,250,252],[248,250,252],[191,219,254]];
-      for (let i=0;i<3;i++) {
-        doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
-        doc.text(labels[i],cx[i],y+13,{align:'center'});
-        doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(...colors[i]);
-        doc.text(values[i],cx[i],y+29,{align:'center'});
-        if (i<2) { doc.setDrawColor(51,65,85); doc.setLineWidth(0.5); doc.line(M+segW*(i+1),y+8,M+segW*(i+1),y+barH-8); }
-      }
-    } else {
-      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(148,163,184);
-      doc.text('PAY PERIOD TOTAL',M+14,y+barH/2+3.5);
-      doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(248,250,252);
-      doc.text(`${toHrs(totalMins)} hours`,W-M-14,y+barH/2+4,{align:'right'});
+      stats.push({label:'REGULAR HOURS',value:toHrs(regularMins),color:[248,250,252]});
+      stats.push({label:'OVERTIME HOURS',value:toHrs(otMins),color:[191,219,254]});
     }
+    stats.push({label:'GAP TIME',value:toHrs(totalGapMins),color:[203,213,225]});
+
+    const barH=42;
+    doc.setFillColor(15,23,42); doc.roundedRect(M,y,W-M*2,barH,2,2,'F');
+    const segW=(W-M*2)/stats.length;
+    stats.forEach((s,i)=>{
+      const cx=M+segW*(i+.5);
+      doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
+      doc.text(s.label,cx,y+13,{align:'center'});
+      doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(...s.color);
+      doc.text(s.value,cx,y+29,{align:'center'});
+      if (i<stats.length-1) { doc.setDrawColor(51,65,85); doc.setLineWidth(0.5); doc.line(M+segW*(i+1),y+8,M+segW*(i+1),y+barH-8); }
+    });
 
     // Timestamp — bottom center, no second page
     doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(148,163,184);
@@ -1878,14 +2299,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const ps  = getPeriodStart(currentOffset);
     const pe  = new Date(ps); pe.setDate(pe.getDate() + PERIOD_DAYS - 1);
     const dat = getPeriodData(currentOffset);
-    let totalMins = 0, regularMins = 0, otMins = 0;
+    let totalMins = 0, regularMins = 0, otMins = 0, totalGapMins = 0;
     for (let w = 0; w < 2; w++) {
       let wk = 0;
+      const dayMinsArr = [];
       for (let d = 0; d < 7; d++) {
         const idx = w * 7 + d;
-        for (let i = 0; i < SESSIONS; i++) wk += sessMins(dat[`d${idx}s${i}in`] || '', dat[`d${idx}s${i}out`] || '');
+        let dm = 0;
+        for (let i = 0; i < SESSIONS; i++) dm += sessMins(dat[`d${idx}s${i}in`] || '', dat[`d${idx}s${i}out`] || '');
+        dayMinsArr.push(dm);
+        wk += dm;
+        totalGapMins += gapMinsForDay(dat, idx);
       }
-      const wOT = calcWeekOT(wk);
+      const wOT = calcWeekOT(wk, dayMinsArr);
       totalMins += wk; regularMins += wOT.regular; otMins += wOT.ot;
     }
 
@@ -1911,6 +2337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       lines.push(`Regular Hours: ${toHrs(regularMins)}`);
       lines.push(`Overtime Hours: ${toHrs(otMins)}`);
     }
+    if (totalGapMins>0) lines.push(`Gap Time: ${toHrs(totalGapMins)}`);
     lines.push('', 'Please let me know if you have any questions.', '', cfg.name || '');
 
     const subject = `Timesheet – ${cfg.name || 'Employee'} – ${periodStr}`;

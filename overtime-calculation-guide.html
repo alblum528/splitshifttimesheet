@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N7XT83LQ');</script>
+<!-- End Google Tag Manager -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>How to Calculate Overtime for Split Shifts (General Formula)</title>
+<meta name="description" content="A general, non-legal walkthrough of how to calculate regular and overtime hours when your workday is split into multiple shifts.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.splitshifttimesheet.com/overtime-calculation-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Calculate Overtime for Split Shifts (General Formula)">
+<meta property="og:description" content="A general, non-legal walkthrough of how to calculate regular and overtime hours when your workday is split into multiple shifts.">
+<meta property="og:url" content="https://www.splitshifttimesheet.com/overtime-calculation-guide.html">
+<meta property="og:image" content="https://www.splitshifttimesheet.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Calculate My Hours — Free Split-Shift Timesheet">
+<meta property="og:site_name" content="Calculate My Hours">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Calculate Overtime for Split Shifts (General Formula)">
+<meta name="twitter:image" content="https://www.splitshifttimesheet.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #f8fafc;
+  --surface:     #ffffff;
+  --border:      #e2e8f0;
+  --section-bg:  #f1f5f9;
+  --text:        #0f172a;
+  --text-2:      #334155;
+  --muted:       #94a3b8;
+  --accent:      #2563eb;
+  --accent-bg:   #eff6ff;
+  --accent-bdr:  #bfdbfe;
+  --accent-dark: #1d4ed8;
+  --nav-bg:      #0f172a;
+  --nav-text:    #f8fafc;
+  --r-sm: 2px;
+  --r:    3px;
+  --r-lg: 4px;
+  --shadow: 0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.04);
+  --brand-h: 46px;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body { font-family: Inter, "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.brand-bar { background: var(--nav-bg); height: var(--brand-h); display: flex; align-items: center; padding: 0 28px; position: sticky; top: 0; z-index: 60; border-bottom: 1px solid rgba(255,255,255,.06); }
+.brand-bar-inner { width: 100%; max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.brand-left { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.brand-name { font-family: "Space Grotesk", Inter, sans-serif; font-size: 17px; font-weight: 700; color: var(--nav-text); letter-spacing: -.2px; }
+@media (max-width: 500px) { .brand-tagline { display: none; } }
+.brand-nav { display: flex; gap: 20px; align-items: center; }
+.brand-nav a { font-size: 12px; font-weight: 500; color: rgba(247,245,240,.7); text-decoration: none; letter-spacing: .2px; transition: color .15s; }
+.brand-nav a:hover, .brand-nav a.active { color: var(--nav-text); }
+.page-wrap { max-width: 800px; margin: 0 auto; padding: 40px 28px 60px; }
+@media (max-width: 600px) { .page-wrap { padding: 28px 16px 48px; } }
+.page-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.page-header h1 { font-family: "Space Grotesk", Inter, sans-serif; font-size: 28px; font-weight: 700; color: var(--text); letter-spacing: -.3px; margin-bottom: 8px; }
+.page-header p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.content-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px 32px; box-shadow: var(--shadow); margin-bottom: 20px; }
+@media (max-width: 600px) { .content-card { padding: 20px 18px; } }
+.content-card h2 { font-family: "Space Grotesk", Inter, sans-serif; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.content-card h3 { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0 8px; }
+.content-card p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
+.content-card p:last-child { margin-bottom: 0; }
+.highlight-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+.highlight-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
+.highlight-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+.ad-note { background: var(--accent-bg); border: 1px solid var(--accent-bdr); border-radius: var(--r); padding: 14px 18px; font-size: 13px; color: var(--accent-dark); line-height: 1.65; }
+.cta-note { background: var(--section-bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; font-size: 14px; color: var(--text-2); line-height: 1.7; }
+.cta-note a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.example-box { background: var(--section-bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; font-size: 13px; color: var(--text-2); line-height: 1.8; font-family: "SFMono-Regular", Consolas, Menlo, monospace; }
+.ad-placeholder { background: #f0ece3; border: 1px dashed #cdc7bb; border-radius: var(--r-sm); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #b0a898; }
+.ad-placeholder-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; }
+.ad-placeholder-size { font-size: 9px; opacity: .6; }
+.ad-top-wrap, .ad-bottom-wrap { overflow: hidden; background: var(--bg); text-align: center; max-width: 100%; height: 0; padding: 0; }
+.ad-top-wrap:has(ins[data-ad-status="filled"]) { height: auto; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.ad-bottom-wrap:has(ins[data-ad-status="filled"]) { height: auto; padding: 10px 0; border-top: 1px solid var(--border); }
+ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
+.page-outer { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.page-outer .page-wrap { margin: 0; flex: 1; min-width: 0; }
+.ad-sidebar-left, .ad-sidebar-right { width: 160px; flex-shrink: 0; display: none; position: sticky; top: calc(var(--brand-h) + 16px); padding-top: 40px; }
+@media (min-width: 1160px) { .ad-sidebar-left, .ad-sidebar-right { display: block; } }
+.hamburger-btn { display: none; background: transparent; border: none; cursor: pointer; padding: 6px 8px; color: rgba(247,245,240,.85); line-height: 1; flex-shrink: 0; }
+.hamburger-btn svg { display: block; }
+.mobile-nav { display: none; position: fixed; top: var(--brand-h); left: 0; right: 0; background: #07111f; border-bottom: 1px solid rgba(255,255,255,.1); z-index: 200; flex-direction: column; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { padding: 16px 20px; font-size: 15px; font-weight: 500; color: rgba(247,245,240,.8); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.07); transition: background .1s, color .1s; }
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover, .mobile-nav a.active { color: #fff; background: rgba(255,255,255,.07); }
+@media (max-width: 640px) { .hamburger-btn { display: block; } .brand-nav { display: none; } }
+.site-footer { background: var(--nav-bg); padding: 20px 28px; margin-top: 40px; }
+.footer-inner { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 12px; color: rgba(247,245,240,.4); }
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: rgba(247,245,240,.55); text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: var(--nav-text); }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7XT83LQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="brand-bar">
+  <div class="brand-bar-inner">
+    <a class="brand-left" href="index.html">
+      <svg width="40" height="24" viewBox="0 0 40 24" xmlns="https://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0"  y="6"  width="2" height="14" rx=".4" fill="#7090a8"/>
+        <rect x="4"  y="2"  width="3" height="20" rx=".4" fill="#8aa4bc"/>
+        <rect x="9"  y="8"  width="2" height="10" rx=".4" fill="#7090a8"/>
+        <rect x="13" y="0"  width="3" height="24" rx=".4" fill="#8aa4bc"/>
+        <rect x="18" y="5"  width="2" height="16" rx=".4" fill="#7090a8"/>
+        <rect x="22" y="3"  width="2" height="19" rx=".4" fill="#8aa4bc"/>
+        <rect x="26" y="1"  width="3" height="22" rx=".4" fill="#2563eb"/>
+        <rect x="31" y="4"  width="2" height="16" rx=".4" fill="#2563eb"/>
+        <rect x="35" y="0"  width="3" height="24" rx=".4" fill="#2563eb"/>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span class="brand-name">Calculate My Hours</span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.5px;color:rgba(247,245,240,.55)">Free Split-Shift Timesheet</span>
+      </div>
+    </a>
+    <nav class="brand-nav" aria-label="Site navigation">
+      <a href="index.html">Timesheet</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none" aria-hidden="true">
+        <rect y="0" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="8" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Timesheet</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="overtime-calculation-guide.html" class="active">Overtime Guide</a>
+</nav>
+
+<div class="ad-top-wrap">
+<!-- OvertimeGuideTop_SplitShift -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4664800783455318" data-ad-slot="3378461043"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-sidebar-left" aria-label="Advertisement">
+<!-- OvertimeGuideLeft_SplitShift -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4664800783455318" data-ad-slot="9226939705" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>How to Calculate Overtime for Split Shifts</h1>
+    <p>The general math behind regular vs. overtime hours — not a substitute for your employer's specific pay policy.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Before You Start: This Is a Math Guide, Not Legal Advice</h2>
+    <p>
+      Overtime rules — what threshold triggers it, what rate applies, and whether split shifts factor in
+      differently — vary by employer, industry, and location, and they change over time. We're not going to
+      tell you what your specific employer owes you. What we can do is walk through the general arithmetic
+      that most hourly overtime systems use, so you understand how the numbers get produced. Always confirm
+      your actual entitlement with your employer's HR/payroll team or a qualified professional.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Step 1: Add Up Hours Per Shift</h2>
+    <p>
+      With a split shift, start by calculating the hours worked in each individual shift, not the full span of
+      the day. Subtract clock-in from clock-out for each shift separately.
+    </p>
+    <div class="example-box">
+      Shift 1: 8:00 AM – 12:00 PM  =  4.0 hours<br>
+      Shift 2: 4:00 PM – 9:00 PM   =  5.0 hours<br>
+      ────────────────────────────────────<br>
+      Daily total = 4.0 + 5.0 = 9.0 hours
+    </div>
+    <p>
+      Note that the unpaid gap between 12:00 PM and 4:00 PM (4 hours) is not counted — only the time actually
+      worked goes into the total.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Step 2: Roll Daily Totals Into a Weekly Total</h2>
+    <p>
+      Add each day's total across the whole work week (most commonly Sunday through Saturday or Monday through
+      Sunday, depending on how your employer defines a workweek).
+    </p>
+    <div class="example-box">
+      Mon: 9.0  &nbsp;Tue: 8.5  &nbsp;Wed: 9.0  &nbsp;Thu: 8.0  &nbsp;Fri: 9.5<br>
+      ────────────────────────────────────<br>
+      Weekly total = 9.0 + 8.5 + 9.0 + 8.0 + 9.5 = 44.0 hours
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Step 3: Split Regular vs. Overtime Hours — Per Week</h2>
+    <p>
+      The most common approach compares your weekly total against a weekly overtime threshold. In the US, 40
+      hours per week is the most common federal threshold for non-exempt hourly employees, though your
+      employer, state, or union agreement may use a different number.
+    </p>
+    <div class="example-box">
+      Weekly total = 44.0 hours<br>
+      Threshold = 40.0 hours<br>
+      ────────────────────────────────────<br>
+      Regular hours  = 40.0<br>
+      Overtime hours = 44.0 − 40.0 = 4.0
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Step 3 (Alternate): Split Regular vs. Overtime Hours — Per Day</h2>
+    <p>
+      Some employers or agreements calculate overtime per day instead — any hours worked beyond a daily
+      threshold (commonly 8) count as overtime for that day, regardless of how many total hours the week adds
+      up to. This method catches a single unusually long day that a weekly-only calculation would miss.
+    </p>
+    <div class="example-box">
+      Mon: 10.0 hrs → 2.0 OT (8.0 regular)<br>
+      Tue: 8.0 hrs  → 0.0 OT<br>
+      Wed: 8.0 hrs  → 0.0 OT<br>
+      Thu: 8.0 hrs  → 0.0 OT<br>
+      Fri: 8.0 hrs  → 0.0 OT<br>
+      ────────────────────────────────────<br>
+      Weekly total = 42.0 hours<br>
+      Overtime hours (per-day method) = 2.0<br>
+      Regular hours = 40.0
+    </div>
+    <p>
+      Notice this is a different result than the per-week method would give for the same 42-hour week (2.0 OT
+      hours either way here, but the two methods diverge quickly once daily totals vary more). Which method
+      applies to you depends entirely on your employer's policy — this is exactly why Calculate My Hours lets
+      you pick either mode rather than assuming one.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Step 4: Apply the Overtime Rate</h2>
+    <p>
+      A common overtime multiplier is "time and a half" — 1.5× your regular hourly rate — applied only to the
+      hours above the threshold. Whether this applies to you, and at what multiplier, depends entirely on your
+      specific employment situation.
+    </p>
+    <div class="example-box">
+      Regular pay  = 40.0 hrs × $18.00       = $720.00<br>
+      Overtime pay =  4.0 hrs × $18.00 × 1.5 = $108.00<br>
+      ────────────────────────────────────<br>
+      Total pay    = $720.00 + $108.00       = $828.00
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Why Split Shifts Make This Error-Prone by Hand</h2>
+    <p>
+      With two or three shifts per day, five to seven days a week, you're manually tracking and summing
+      anywhere from ten to twenty individual time entries per pay period. A single transposed digit — writing
+      4:30 instead of 4:00 — throws off the daily total, which throws off the weekly total, which can push you
+      over or under the overtime threshold without you noticing.
+    </p>
+    <div class="cta-note">
+      Calculate My Hours automates every step above: enter your clock-in/out times for up to three shifts per
+      day, turn on overtime tracking in Settings and choose per-week or per-day mode, and the calculator handles
+      the daily, weekly, and pay-period math for you — including totaling the unpaid <strong>gap time</strong>
+      between your shifts — <a href="index.html">try the free split-shift timesheet</a>.
+    </div>
+  </div>
+</div>
+
+  <aside class="ad-sidebar-right" aria-label="Advertisement">
+<!-- OvertimeGuideRight_SplitShift -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4664800783455318" data-ad-slot="5223125833" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+</div><!-- /.page-outer -->
+
+<div class="ad-bottom-wrap">
+<!-- OvertimeGuideBottom_SplitShift -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4664800783455318" data-ad-slot="3639571101" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 Calculate My Hours. All rights reserved.</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Timesheet</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="what-is-a-split-shift.html">What Is a Split Shift?</a>
+      <a href="overtime-calculation-guide.html">Overtime Guide</a>
+      <a href="split-shift-timesheet-tips.html">Timesheet Tips</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var hBtn = document.getElementById('hamburger-btn');
+  var mNav = document.getElementById('mobile-nav');
+  if (!hBtn || !mNav) return;
+  hBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var open = mNav.classList.toggle('open');
+    hBtn.setAttribute('aria-expanded', open);
+  });
+  mNav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mNav.classList.remove('open');
+      hBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!mNav.contains(e.target) && e.target !== hBtn && !hBtn.contains(e.target)) {
+      mNav.classList.remove('open');
+      hBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

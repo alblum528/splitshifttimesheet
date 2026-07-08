@@ -13,21 +13,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Contact Us — Calculate My Hours</title>
-<meta name="description" content="Get in touch with the Calculate My Hours team. We welcome feedback, bug reports, and feature requests.">
+<title>Privacy Policy — Calculate My Hours</title>
+<meta name="description" content="Privacy policy for Calculate My Hours: what data we collect, how local storage works, and how Google AdSense and analytics cookies are used on this site.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.splitshifttimesheet.com/contact.html">
+<link rel="canonical" href="https://www.splitshifttimesheet.com/privacy-policy.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact — Calculate My Hours">
-<meta property="og:description" content="Get in touch with the Calculate My Hours team. We welcome feedback, bug reports, and feature requests.">
-<meta property="og:url" content="https://www.splitshifttimesheet.com/contact.html">
+<meta property="og:title" content="Privacy Policy — Calculate My Hours">
+<meta property="og:description" content="Privacy policy for Calculate My Hours: what data we collect, how local storage works, and how Google AdSense and analytics cookies are used on this site.">
+<meta property="og:url" content="https://www.splitshifttimesheet.com/privacy-policy.html">
 <meta property="og:image" content="https://www.splitshifttimesheet.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Calculate My Hours — Free Split-Shift Timesheet">
 <meta property="og:site_name" content="Calculate My Hours">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — Calculate My Hours">
+<meta name="twitter:title" content="Privacy Policy — Calculate My Hours">
 <meta name="twitter:image" content="https://www.splitshifttimesheet.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,86 +150,63 @@ body {
   font-size: 17px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-
-/* Form */
-.form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
-.form-group:last-of-type { margin-bottom: 0; }
-.form-group label {
-  font-size: 11px;
+.content-card h3 {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  color: var(--muted);
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  font: inherit;
-  font-size: 14px;
-  padding: 10px 13px;
-  border: 1px solid var(--border);
-  border-radius: var(--r);
   color: var(--text);
-  background: var(--surface);
-  transition: border-color .1s, box-shadow .1s;
-  width: 100%;
+  margin: 16px 0 8px;
 }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(201,98,43,.12);
-}
-.form-group textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
-
-.form-hint { font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
-
-.submit-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 22px;
-  padding: 11px 24px;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: var(--r);
-  color: #fff;
-  font: inherit;
+.content-card p {
   font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background .1s, border-color .1s;
+  color: var(--text-2);
+  line-height: 1.75;
+  margin-bottom: 12px;
 }
-.submit-btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.content-card p:last-child { margin-bottom: 0; }
 
-/* Success state */
-.success-msg {
-  display: none;
-  background: #f0fdf4;
-  border: 1px solid #86efac;
-  border-radius: var(--r);
-  padding: 16px 20px;
+.highlight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+.highlight-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   font-size: 14px;
-  color: #166534;
+  color: var(--text-2);
   line-height: 1.6;
-  margin-top: 20px;
 }
-.success-msg.visible { display: block; }
+.highlight-list li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
 
-/* Privacy note */
-.privacy-note {
+.ad-note {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-bdr);
+  border-radius: var(--r);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--accent-dark);
+  line-height: 1.65;
+}
+
+.updated-note {
   font-size: 12px;
   color: var(--muted);
-  line-height: 1.6;
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
+  margin-bottom: 20px;
 }
 
 /* Ad placeholders */
@@ -344,7 +321,7 @@ ins.adsbygoogle { min-height: 0 !important; max-width: 100% !important; }
   flex-wrap: wrap;
 }
 .footer-copy { font-size: 12px; color: rgba(247,245,240,.4); }
-.footer-links { display: flex; gap: 16px; }
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 .footer-links a {
   font-size: 12px;
   color: rgba(247,245,240,.55);
@@ -381,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="brand-nav" aria-label="Site navigation">
       <a href="index.html">Timesheet</a>
       <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <svg width="22" height="18" viewBox="0 0 22 18" fill="none" aria-hidden="true">
@@ -395,17 +372,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
   <a href="index.html">Timesheet</a>
   <a href="about.html">About</a>
-  <a href="contact.html" class="active">Contact</a>
-  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html" class="active">Privacy Policy</a>
 </nav>
 
 <!-- Top ad — replace placeholder with AdSense <ins> tag when slot is ready -->
 <div class="ad-top-wrap">
-<!-- ContactTop_SplitShift -->
+<!-- PrivacyTop_SplitShift -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
      data-ad-client="ca-pub-4664800783455318"
-     data-ad-slot="9752297703"></ins>
+     data-ad-slot="3378461043"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -415,11 +392,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Left sidebar ad — replace placeholder with AdSense <ins> tag when slot is ready -->
   <aside class="ad-sidebar-left" aria-label="Advertisement">
-<!-- ContactLeft_SplitShift -->
+<!-- PrivacyLeft_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4664800783455318"
-     data-ad-slot="8439216039"
+     data-ad-slot="9226939705"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -429,100 +406,116 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="page-wrap">
   <div class="page-header">
-    <h1>Contact Us</h1>
-    <p>Bug report, feature request, or just a question — we read every message.</p>
+    <h1>Privacy Policy</h1>
+    <p>What we collect, what we don't, and how advertising works on this site.</p>
+  </div>
+
+  <p class="updated-note">Last updated: July 7, 2026</p>
+
+  <div class="content-card">
+    <h2>The Short Version</h2>
+    <p>
+      Calculate My Hours does not require an account and does not store your timesheet data on any server.
+      Everything you enter — shift times, settings, overtime thresholds — is saved locally in your browser
+      using <strong>localStorage</strong> and never leaves your device. We do not sell personal data, and we
+      never will. The rest of this page covers the details required by law and by our advertising partners.
+    </p>
   </div>
 
   <div class="content-card">
-    <h2>What to Contact Us About</h2>
+    <h2>Information You Provide Directly</h2>
+    <h3>Timesheet data</h3>
     <p>
-      Calculate My Hours is maintained by one person, and every message that comes through the form below
-      is read personally — nothing goes to a support queue or a ticketing system. A few things people
-      commonly reach out about:
+      Shift times, dates, settings, and any labels you enter into the calculator are stored only in your
+      browser's local storage. This data is never transmitted to our servers because we don't operate a
+      backend for the timesheet tool — the entire calculator runs client-side, in your browser, using
+      JavaScript. Clearing your browser's site data or local storage will permanently erase this information;
+      we have no copy of it and cannot recover it for you.
     </p>
+    <h3>Contact form submissions</h3>
+    <p>
+      If you use the contact form, the name, email address, subject, and message you provide are transmitted
+      to our form-processing provider, Formspree, and forwarded to us by email. We use this information only
+      to respond to your inquiry. We do not add contact-form submitters to a mailing list, and we do not share
+      this information with third parties beyond what's necessary to operate the form (i.e., Formspree's own
+      processing of the submission).
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Cookies and Automated Data Collection</h2>
+    <p>
+      This site uses third-party services that may set cookies or collect data automatically when you visit.
+      These services operate independently of our own code and have their own privacy practices:
+    </p>
+    <h3>Google AdSense</h3>
+    <p>
+      We display ads served by Google AdSense. Google and its advertising partners may use cookies, device
+      identifiers, or similar technologies to serve ads based on your prior visits to this or other websites.
+      You can learn more about how Google uses data and manage your ad personalization settings at
+      <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">policies.google.com/technologies/ads</a>.
+      If you're in the European Economic Area or UK, ad personalization is subject to the consent choices you
+      make when prompted.
+    </p>
+    <h3>Google Tag Manager</h3>
+    <p>
+      We use Google Tag Manager to load the scripts on this site (including AdSense) in a controlled way. Tag
+      Manager itself is a script-loading tool; it does not collect personal data on its own, but the tags it
+      loads (like AdSense) may.
+    </p>
+    <h3>Your cookie choices</h3>
+    <p>
+      Most browsers let you block or delete cookies through their settings. Blocking cookies may cause some
+      parts of this site — mainly ad display — to function differently, but the timesheet calculator itself
+      will continue to work normally, since it doesn't depend on cookies.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>What We Don't Do</h2>
     <ul class="highlight-list">
-      <li><strong>Bugs:</strong> a calculation looks wrong, the PDF export isn't formatting correctly, or something breaks on your browser or device</li>
-      <li><strong>Feature requests:</strong> a fourth shift slot, a different overtime rule, a new export format, or anything else that would make the tool more useful for your job</li>
-      <li><strong>Data questions:</strong> what's stored, where it lives, and how to clear it (short answer: everything stays in your browser's local storage — see our <a href="privacy-policy.html" style="color:var(--accent);text-decoration:none;font-weight:500;">Privacy Policy</a> for the full explanation)</li>
-      <li><strong>General feedback:</strong> what's working, what's confusing, or what you wish existed</li>
+      <li>We don't require registration or a login to use the calculator</li>
+      <li>We don't store your timesheet entries on any server or database</li>
+      <li>We don't sell, rent, or trade personal information to third parties</li>
+      <li>We don't track you across other websites beyond what Google's advertising cookies do independently</li>
+      <li>We don't use your contact-form messages for anything other than replying to you</li>
     </ul>
+  </div>
+
+  <div class="content-card">
+    <h2>Children's Privacy</h2>
     <p>
-      One thing we can't help with: questions about your specific pay, employer policies, or legal
-      entitlements. We built the calculator, but we're not payroll or legal professionals — for that, your
-      employer's HR department or a labor attorney in your area is the right resource.
+      This site is not directed at children under 13, and we do not knowingly collect personal information
+      from children under 13. If you believe a child has provided us information through the contact form,
+      please reach out and we'll delete it.
     </p>
   </div>
 
   <div class="content-card">
-    <h2>Response Time</h2>
+    <h2>Changes to This Policy</h2>
     <p>
-      As a small independent project, replies typically go out within a few business days. Bug reports that
-      affect the core calculation get priority. If you don't hear back within a week, feel free to send a
-      follow-up — messages occasionally land in spam filters on both ends.
+      We may update this privacy policy from time to time to reflect changes in the tools we use or in
+      applicable law. The "Last updated" date at the top of this page will always reflect the most recent
+      revision. We encourage you to review this page periodically.
     </p>
   </div>
 
   <div class="content-card">
-    <h2>Send Us a Message</h2>
-
- 
-    <form id="contact-form" action="https://formspree.io/f/mqevzaqg" method="POST">
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email">
-        </div>
-      </div>
-
-      <div class="form-group" style="margin-top:18px">
-        <label for="subject">Subject</label>
-        <select id="subject" name="subject" required>
-          <option value="" disabled selected>Select a topic…</option>
-          <option value="Bug report">Bug report</option>
-          <option value="Feature request">Feature request</option>
-          <option value="General question">General question</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-group" style="margin-top:18px">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
-      </div>
-
-      <!-- Honeypot field to reduce spam -->
-      <input type="text" name="_gotcha" style="display:none">
-
-      <button type="submit" class="submit-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        Send Message
-      </button>
-
-      <div class="success-msg" id="success-msg">
-        &#10003;&nbsp; Thanks — your message was sent. We'll get back to you at the email address you provided.
-      </div>
-
-      <p class="privacy-note">
-        Your message is sent securely via Formspree. We use the information you provide only to respond to your
-        inquiry and will never share it with third parties. See our <a href="about.html" style="color:var(--accent);text-decoration:none">About page</a> for more on how we handle your data.
-      </p>
-
-    </form>
+    <h2>Contact Us</h2>
+    <p>
+      Questions about this privacy policy or how your data is handled? Reach out through our
+      <a href="contact.html" style="color:var(--accent);text-decoration:none;font-weight:500;">contact page</a> and we'll respond directly.
+    </p>
   </div>
 </div>
 
   <!-- Right sidebar ad — replace placeholder with AdSense <ins> tag when slot is ready -->
   <aside class="ad-sidebar-right" aria-label="Advertisement">
-<!-- ContactRight_SplitShift -->
+<!-- PrivacyRight_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4664800783455318"
-     data-ad-slot="4539499472"
+     data-ad-slot="5223125833"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -534,11 +527,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Bottom ad — replace placeholder with AdSense <ins> tag when slot is ready -->
 <div class="ad-bottom-wrap">
-<!-- ContactBottom_SplitShift -->
+<!-- PrivacyBottom_SplitShift -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4664800783455318"
-     data-ad-slot="1913336134"
+     data-ad-slot="3639571101"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -548,7 +541,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-copy">&copy; 2026	Calculate My Hours. All rights reserved.</span>
+    <span class="footer-copy">&copy; 2026 Calculate My Hours. All rights reserved.</span>
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="index.html">Timesheet</a>
       <a href="about.html">About</a>
@@ -581,42 +574,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!mNav.contains(e.target) && e.target !== hBtn && !hBtn.contains(e.target)) {
       mNav.classList.remove('open');
       hBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Ad wrappers start at height:0 and only expand via CSS :has([data-ad-status="filled"])
-})();
-
-(function() {
-  var form = document.getElementById('contact-form');
-  var successMsg = document.getElementById('success-msg');
-  if (!form) return;
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn = form.querySelector('.submit-btn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    try {
-      var res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.reset();
-        successMsg.classList.add('visible');
-        btn.style.display = 'none';
-      } else {
-        btn.disabled = false;
-        btn.innerHTML = 'Send Message';
-        alert('Something went wrong. Please try again or email us directly at support@splitshifttimesheet.com');
-      }
-    } catch(err) {
-      btn.disabled = false;
-      btn.innerHTML = 'Send Message';
-      alert('Something went wrong. Please check your connection and try again.');
     }
   });
 })();
