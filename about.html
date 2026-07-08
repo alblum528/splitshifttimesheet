@@ -172,27 +172,57 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin: 14px 0;
 }
 .highlight-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  position: relative;
+  padding-left: 18px;
   font-size: 14px;
   color: var(--text-2);
   line-height: 1.6;
 }
 .highlight-list li::before {
   content: '';
-  display: block;
+  position: absolute;
+  left: 0;
+  top: 7px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  flex-shrink: 0;
-  margin-top: 7px;
 }
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+@media (max-width: 600px) {
+  .guides-grid { grid-template-columns: 1fr; }
+}
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--section-bg);
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.guide-card:hover { border-color: var(--accent-bdr); background: var(--accent-bg); }
+.guide-card-label {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: var(--accent);
+}
+.guide-card-title {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--text);
+}
+.guide-card-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; }
 
 .ad-note {
   background: var(--accent-bg);
@@ -460,12 +490,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>Freelancers and hourly employees juggling multiple clients or short-term jobs in a single day</li>
     </ul>
     <p>
-      If your schedule doesn't fit neatly into one clock-in and one clock-out, this tool was made for you. We
-      also maintain a small library of guides on split-shift scheduling — see
-      <a href="what-is-a-split-shift.html" style="color:var(--accent);text-decoration:none;font-weight:500;">What Is a Split Shift?</a>,
-      <a href="overtime-calculation-guide.html" style="color:var(--accent);text-decoration:none;font-weight:500;">our overtime calculation guide</a>,
-      and <a href="split-shift-timesheet-tips.html" style="color:var(--accent);text-decoration:none;font-weight:500;">tips for tracking split-shift hours accurately</a>.
+      If your schedule doesn't fit neatly into one clock-in and one clock-out, this tool was made for you.
     </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Learn More</h2>
+    <p>We also maintain a small library of guides on split-shift scheduling:</p>
+    <div class="guides-grid">
+      <a class="guide-card" href="what-is-a-split-shift.html">
+        <span class="guide-card-label">Guide</span>
+        <span class="guide-card-title">What Is a Split Shift?</span>
+        <span class="guide-card-desc">Definition, real-world examples, and how it's different from a double shift or on-call time.</span>
+      </a>
+      <a class="guide-card" href="overtime-calculation-guide.html">
+        <span class="guide-card-label">Guide</span>
+        <span class="guide-card-title">How to Calculate Overtime</span>
+        <span class="guide-card-desc">The general math behind per-week and per-day overtime, with worked examples.</span>
+      </a>
+      <a class="guide-card" href="split-shift-timesheet-tips.html">
+        <span class="guide-card-label">Guide</span>
+        <span class="guide-card-title">8 Timesheet Tracking Tips</span>
+        <span class="guide-card-desc">Practical habits that prevent the small errors that cause big payroll headaches.</span>
+      </a>
+    </div>
   </div>
 
   <div class="content-card">
