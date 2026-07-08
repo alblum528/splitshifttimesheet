@@ -76,6 +76,13 @@ body { font-family: Inter, "Segoe UI", system-ui, sans-serif; background: var(--
 .content-card h3 { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0 8px; }
 .content-card p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
 .content-card p:last-child { margin-bottom: 0; }
+.guides-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 14px; }
+@media (max-width: 600px) { .guides-grid { grid-template-columns: 1fr; } }
+.guide-card { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--r); background: var(--section-bg); text-decoration: none; transition: border-color .15s, background .15s; }
+.guide-card:hover { border-color: var(--accent-bdr); background: var(--accent-bg); }
+.guide-card-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--accent); }
+.guide-card-title { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
+.guide-card-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; }
 .highlight-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
 .highlight-list li { position: relative; padding-left: 18px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
 .highlight-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
@@ -253,6 +260,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       the specifics here. If you think you may be owed split-shift pay, your employer's HR department, your
       local labor agency, or an employment attorney are the right people to ask.
     </p>
+  </div>
+
+  <div class="content-card">
+    <h2>Related Reading</h2>
+    <div class="guides-grid">
+      <a class="guide-card" href="overtime-calculation-guide.html">
+        <span class="guide-card-label">Guide</span>
+        <span class="guide-card-title">How to Calculate Overtime</span>
+        <span class="guide-card-desc">The general math behind per-week and per-day overtime, with worked examples.</span>
+      </a>
+      <a class="guide-card" href="split-shift-timesheet-tips.html">
+        <span class="guide-card-label">Guide</span>
+        <span class="guide-card-title">8 Timesheet Tracking Tips</span>
+        <span class="guide-card-desc">Practical habits that prevent the small errors that cause big payroll headaches.</span>
+      </a>
+    </div>
   </div>
 </div>
 
