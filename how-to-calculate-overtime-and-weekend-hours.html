@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHFL7GXX');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to Calculate Overtime and Weekend Hours from a Timesheet | Calculate My Hours</title>
+<meta name="description" content="A practical guide to splitting a raw timesheet into straight time, overtime, and weekend hours — the common thresholds, the common mistakes, and how to automate the math." />
+<meta name="keywords" content="calculate overtime hours, weekend hours timesheet, overtime calculator, timesheet hours breakdown, payroll hours calculation, overtime threshold" />
+<link rel="canonical" href="https://www.timespancalculator.com/how-to-calculate-overtime-and-weekend-hours.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Calculate Overtime and Weekend Hours from a Timesheet" />
+<meta property="og:description" content="A practical guide to splitting a raw timesheet into straight time, overtime, and weekend hours — thresholds, mistakes, and how to automate the math." />
+<meta property="og:url" content="https://www.timespancalculator.com/how-to-calculate-overtime-and-weekend-hours.html" />
+<meta property="og:site_name" content="Calculate My Hours - Time Duration Calculator" />
+<meta property="og:image" content="https://www.timespancalculator.com/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to Calculate Overtime and Weekend Hours from a Timesheet" />
+<meta name="twitter:description" content="A practical guide to splitting a raw timesheet into straight time, overtime, and weekend hours — thresholds, mistakes, and how to automate the math." />
+<meta name="twitter:image" content="https://www.timespancalculator.com/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Calculate Overtime and Weekend Hours from a Timesheet",
+  "description": "A practical guide to splitting a raw timesheet into straight time, overtime, and weekend hours — the common thresholds, the common mistakes, and how to automate the math.",
+  "url": "https://www.timespancalculator.com/how-to-calculate-overtime-and-weekend-hours.html",
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-07-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Calculate My Hours"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculate My Hours",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.timespancalculator.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.timespancalculator.com/how-to-calculate-overtime-and-weekend-hours.html"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Calculate My Hours",
+      "item": "https://www.timespancalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How to Calculate Overtime and Weekend Hours from a Timesheet",
+      "item": "https://www.timespancalculator.com/how-to-calculate-overtime-and-weekend-hours.html"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-4664800783455318">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; }
+
+  :root {
+    --ink: #0F172A;
+    --ink-soft: #334155;
+    --paper: #F8FAFC;
+    --card: #FFFFFF;
+    --amber: #2563EB;
+    --amber-soft: #EFF6FF;
+    --forest: #1D4ED8;
+    --forest-soft: #DBEAFE;
+    --line: #E2E8F0;
+    --muted: #94A3B8;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .site-header {
+    background: var(--ink);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header a { text-decoration: none; }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-brand-name {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--paper);
+    letter-spacing: -0.01em;
+  }
+  .header-tagline {
+    font-size: 12px;
+    color: #94A3B8;
+  }
+
+  .week-strip {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .week-strip span {
+    display: inline-block;
+    width: 5px;
+    height: 12px;
+    border-radius: 2px;
+  }
+  .week-strip span.weekday { background: #334155; opacity: 0.35; }
+  .week-strip span.weekend { background: #2563EB; }
+
+  .ad-strip-top {
+    padding: 16px 0;
+    background: #F1F5F9;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: center;
+  }
+
+  .body-columns {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 16px;
+  }
+
+  .sidebar-left {
+    width: 180px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 16px;
+  }
+
+  .page-wrap {
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+    max-width: 760px;
+  }
+
+  .sidebar-right {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 16px;
+  }
+
+  .ad-strip-bottom {
+    padding: 20px 0;
+    background: #F1F5F9;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: center;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .byline {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  h1 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    line-height: 1.18;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 32px;
+  }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+  }
+  .section h2 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .section p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 10px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul, .section ol {
+    margin: 0 0 10px;
+    padding-left: 20px;
+  }
+  .section li {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .section a { color: var(--forest); }
+  table.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 10px 0;
+  }
+  table.hours-table th, table.hours-table td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.hours-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  table.hours-table td { color: var(--ink-soft); }
+  .callout {
+    background: var(--amber-soft);
+    border: 1px solid #BFDBFE;
+    border-radius: 2px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--forest);
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  .disclaimer {
+    background: #FEF9E7;
+    border: 1px solid #FDE68A;
+    border-radius: 2px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    color: #92400E;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  .related-list {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .related-list li {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .cta-wrap {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .cta-wrap a {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .cta-wrap a:hover { background: var(--ink-soft); }
+
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 28px;
+    text-align: center;
+  }
+  .footer-strip {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .site-footer p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .site-footer a { color: var(--muted); text-decoration: none; }
+  .site-footer a:hover { color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .sidebar-left, .sidebar-right { display: none; }
+    .body-columns { padding: 24px 16px; }
+  }
+
+  .ham-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+  .ham-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #94A3B8;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.15s;
+  }
+  .ham-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .ham-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .ham-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mob-nav {
+    display: none;
+    background: var(--ink);
+    border-top: 1px solid #1E293B;
+  }
+  .mob-nav.open { display: block; }
+  .mob-nav a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 15px;
+    color: #94A3B8;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #1E293B;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+  .mob-nav a:last-child { border-bottom: none; }
+  .mob-nav a:hover { color: var(--paper); background: rgba(255,255,255,0.04); }
+
+  @media (max-width: 640px) {
+    .site-header { padding: 14px 16px; }
+    .site-header > nav { display: none; }
+    .ham-btn { display: flex; }
+    .ad-strip-top { display: none; }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHFL7GXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Header -->
+<header class="site-header">
+  <a href="index.html" class="header-brand">
+    <svg class="brand-icon" width="40" height="24" viewBox="0 0 40 24" xmlns="https://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="0"  y="6"  width="2" height="14" rx=".4" fill="#64748B"/>
+      <rect x="4"  y="2"  width="3" height="20" rx=".4" fill="#94A3B8"/>
+      <rect x="9"  y="8"  width="2" height="10" rx=".4" fill="#64748B"/>
+      <rect x="13" y="0"  width="3" height="24" rx=".4" fill="#94A3B8"/>
+      <rect x="18" y="5"  width="2" height="16" rx=".4" fill="#64748B"/>
+      <rect x="22" y="3"  width="2" height="19" rx=".4" fill="#94A3B8"/>
+      <rect x="26" y="1"  width="3" height="22" rx=".4" fill="#2563EB"/>
+      <rect x="31" y="4"  width="2" height="16" rx=".4" fill="#2563EB"/>
+      <rect x="35" y="0"  width="3" height="24" rx=".4" fill="#2563EB"/>
+    </svg>
+    <div>
+      <div class="header-brand-name">Calculate My Hours</div>
+      <div class="header-tagline">Free time duration calculator</div>
+    </div>
+  </a>
+  <nav style="display:flex;align-items:center;gap:20px;">
+    <a href="index.html" style="font-size:13px;color:#94A3B8;text-decoration:none;font-weight:500;">Bulk Spreadsheet Calculator</a>
+    <a href="calculator.html" style="font-size:13px;color:#94A3B8;text-decoration:none;font-weight:500;">Single Timespan Calculator</a>
+    <a href="about.html" style="font-size:13px;color:#94A3B8;text-decoration:none;font-weight:500;">About</a>
+    <a href="contact.html" style="font-size:13px;color:#94A3B8;text-decoration:none;font-weight:500;">Contact</a>
+  </nav>
+  <button class="ham-btn" id="hamBtn" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mob-nav" id="mobNav">
+  <a href="index.html">Bulk Spreadsheet Calculator</a>
+  <a href="calculator.html">Single Timespan Calculator</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- Top ad (responsive) -->
+<div class="ad-strip-top">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- BlogTop_Overtime -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="1905657346"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!-- Three-column body -->
+<div class="body-columns">
+
+  <!-- Left sidebar ads -->
+  <aside class="sidebar-left">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- BlogLeft_Overtime -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="9846927789"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </aside>
+
+  <!-- Main content -->
+  <main class="page-wrap">
+
+    <div class="eyebrow">
+      <div class="week-strip">
+        <span class="weekday"></span>
+        <span class="weekday"></span>
+        <span class="weekday"></span>
+        <span class="weekday"></span>
+        <span class="weekday"></span>
+        <span class="weekend"></span>
+        <span class="weekend"></span>
+      </div>
+      Guide
+    </div>
+
+    <h1>How to Calculate Overtime and Weekend Hours from a Timesheet</h1>
+    <p class="byline">Updated July 14, 2026 · 6 min read</p>
+    <p class="lead">Turning a raw list of clock-in/clock-out timestamps into "straight time," "overtime," and "weekend hours" sounds simple until you actually try it in a spreadsheet. Here's how the split typically works, the thresholds involved, and the mistakes that most often throw the numbers off.</p>
+
+    <div class="disclaimer">This article explains common conventions for splitting timesheet hours — it is general information, not legal, tax, or payroll advice. Overtime rules vary by country, state/province, industry, and individual employment agreement. Confirm the applicable rules with your local labor authority, payroll provider, or legal counsel before applying them.</div>
+
+    <div class="section">
+      <h2>Straight time vs. overtime: the basic split</h2>
+      <p>Most systems start with the same two buckets: <strong>straight time</strong> (hours worked up to a standard threshold) and <strong>overtime</strong> (hours worked beyond it, typically paid at a higher rate). The threshold and the multiplier are where the variation begins.</p>
+      <ul>
+        <li>In the US, the federal default under the Fair Labor Standards Act is overtime after 40 hours in a workweek, at 1.5× the regular rate — but several states (California among them) also apply daily overtime after 8 hours in a single day.</li>
+        <li>Many other countries define overtime differently — some by daily thresholds, some by weekly, some with different multipliers for weekday vs. weekend overtime.</li>
+        <li>Some employment contracts define their own thresholds entirely, independent of the statutory minimum.</li>
+      </ul>
+      <p>Because of this variation, there's no single formula that's correct everywhere — the calculation always starts with knowing which threshold applies to the specific worker and jurisdiction.</p>
+    </div>
+
+    <div class="section">
+      <h2>Weekend and holiday premiums</h2>
+      <p>On top of the straight time/overtime split, many pay structures add a separate premium for hours worked on weekends or public holidays — sometimes regardless of whether the weekly overtime threshold has been crossed. This means a given hour of work can potentially fall into more than one premium category at once (e.g., "weekend" and "overtime" simultaneously), and how those stack — additively or as separate line items — again depends on the specific policy in place.</p>
+    </div>
+
+    <div class="section">
+      <h2>Turning raw timestamps into these categories</h2>
+      <p>Regardless of which thresholds apply, the underlying data problem is the same: you have a list of start and end timestamps, and you need to know how many of the total hours fall into each bucket. In practice that usually means computing, for each shift or pay period:</p>
+      <ol>
+        <li><strong>Total hours</strong> — every hour worked, no exclusions.</li>
+        <li><strong>Weekend hours</strong> — hours that fall on whichever days count as the weekend for that worker or region.</li>
+        <li><strong>Business/weekday hours</strong> — the remainder, typically within a defined daily window.</li>
+        <li>Then, separately, apply the relevant overtime threshold to the weekly or daily total to determine how much of it is straight time vs. overtime.</li>
+      </ol>
+      <p>Steps 1–3 are exactly what our <a href="index.html">Bulk Spreadsheet Calculator</a> automates: upload a timesheet with start/end timestamp columns and it appends Total Hours, Business Hours, Weekend Hours, and Weekday Hours for every row, with configurable weekend days and business-hours window. Step 4 (applying your specific overtime threshold) is a policy decision that depends on your jurisdiction, so it's worth applying on top of those totals rather than assuming a single universal rule.</p>
+    </div>
+
+    <div class="section">
+      <h2>Common mistakes</h2>
+      <ul>
+        <li><strong>Assuming Saturday/Sunday is the weekend for everyone.</strong> If any part of the workforce operates on a different week (see our <a href="business-hours-by-country-guide.html">guide to business hours by region</a>), a hardcoded Saturday/Sunday rule will misclassify their hours.</li>
+        <li><strong>Not handling shifts that cross midnight.</strong> A shift that starts Friday night and ends Saturday morning needs to be split at the day boundary, or the weekend-hours count will be wrong.</li>
+        <li><strong>Forgetting holidays entirely.</strong> A holiday that falls on a normal weekday still needs to be excluded from "regular business hours" if your policy pays it differently.</li>
+        <li><strong>Double-counting or dropping overlapping premiums.</strong> When weekend and overtime premiums can both apply to the same hour, it's easy to either double-pay or miss one — worth checking explicitly rather than assuming the spreadsheet formula handles it.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Related reading</h2>
+      <ul class="related-list">
+        <li><a href="how-to-calculate-business-hours-in-excel.html">How to calculate business hours in Excel (NETWORKDAYS, MOD & where they break)</a></li>
+        <li><a href="business-hours-by-country-guide.html">What counts as "business hours"? A guide by region and industry</a></li>
+      </ul>
+    </div>
+
+    <div class="cta-wrap" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html">Try the Bulk Spreadsheet Calculator →</a>
+      <a href="calculator.html" style="background:var(--amber);">Try the Single Timespan Calculator →</a>
+    </div>
+
+  </main>
+
+  <!-- Right sidebar ads -->
+  <aside class="sidebar-right">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- BlogRight_Overtime -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="6966412338"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </aside>
+
+</div>
+
+<!-- Bottom leaderboard ad -->
+<div class="ad-strip-bottom">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664800783455318"
+     crossorigin="anonymous"></script>
+<!-- BlogBottom_Overtime -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4664800783455318"
+     data-ad-slot="4340248992"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-strip">
+    <div class="week-strip">
+      <span class="weekday"></span>
+      <span class="weekday"></span>
+      <span class="weekday"></span>
+      <span class="weekday"></span>
+      <span class="weekday"></span>
+      <span class="weekend"></span>
+      <span class="weekend"></span>
+    </div>
+  </div>
+  <p>© 2026 Calculate My Hours. All rights reserved.</p>
+  <p style="margin-top:8px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;"><a href="index.html">Bulk Spreadsheet Calculator</a> <a href="calculator.html">Single Timespan Calculator</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy-policy.html">Privacy</a></p>
+</footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamBtn');
+  var nav = document.getElementById('mobNav');
+  btn.addEventListener('click', function() {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.site-header') && !e.target.closest('.mob-nav')) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
