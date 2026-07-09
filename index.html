@@ -2009,6 +2009,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     el.dataset.day=di; el.dataset.sess=si; el.dataset.kind=kind;
     el.addEventListener('change',onTimeChange);
     el.addEventListener('blur',onTimeBlur);
+    el.addEventListener('keydown',onTimeKeydown);
     return el;
   }
   function markValidity(el) {
@@ -2021,6 +2022,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const el=e.target;
     setCellValue(currentOffset,+el.dataset.day,+el.dataset.sess,el.dataset.kind,el.value.trim());
     recalcDay(+el.dataset.day); markValidity(el);
+  }
+  function onTimeKeydown(e) {
+    if (e.key==='Enter') { e.preventDefault(); e.target.blur(); }
   }
   function onTimeBlur(e) {
     const el=e.target, p=parseTime(el.value);
